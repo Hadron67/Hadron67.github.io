@@ -1,0 +1,92 @@
+@mixin mobile-post-list {
+    @media screen and (max-width: 800px) {
+        @content;
+    }
+}
+span.category-divider {
+    font-size: $base-font-size * 0.6;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+    vertical-align: .125em;// XXX: A result of tweaking
+}
+.category-outter-container {
+    header.category-path {
+        background-color: #bbb;
+        border-radius: 5px;
+        padding: 5px 10px;
+        // font-size: $base-font-size * 1.1;
+        margin-bottom: 20px;
+        color: #777;
+        a {
+            color: #777;
+            text-decoration: none;
+            @include underline-animation-center(-2px, 2px, #777);
+            &:hover {
+                color: #777;
+            }
+        }
+    }
+}
+$category-item-margin: 14px;
+ul.subcategory-container {
+    list-style: none;
+    margin-top: 10px;
+    > li {
+        display: inline-block;
+        // margin: $category-item-margin/2 $category-item-margin $category-item-margin/2 0;
+        padding: 10px;
+    }
+    a {
+        color: $base-font-color;
+        display: inline-block;
+        padding: 5px 10px;
+    }
+}
+
+.btn-category {
+    border-left: #bb0 solid 3px;
+    @include shadow-base();
+    background-color: #fff;
+
+    // transition: all 0.15s linear;
+    @include the-transition(background-color);
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.category-file-icon {
+    padding: 0 4px 0 0;
+}
+.post-list-date {
+    font-weight: $base-font-weight;
+    font-size: $base-font-size * 1.25;
+    margin-bottom: 10px;
+}
+.category-post-list {
+    margin-top: 20px;
+}
+ul.post-date-list {
+    list-style: none;
+    margin-top: 10px;
+}
+ul.post-list {
+    @extend %clearfix;
+    list-style-type: none;
+    padding-bottom: 20px;
+    > li {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        @include mobile-post-list(){
+            float: none;
+            width: 100%;
+            display: block;
+        }
+    }
+}
+h1.article-title-small {
+    font-size: $base-font-size * 1.25;
+    font-weight: $base-font-weight;
+}

@@ -1,0 +1,88 @@
+@mixin page-nav-mobile(){
+    @media screen and (max-width: 530px) {
+        @content;
+    }
+}
+
+ul.page-nav-list {
+    list-style: none;
+    display: inline-block;
+    > li {
+        display: inline-block;
+        margin: 0 3px;
+    }
+    @include page-nav-mobile(){
+        display: none;
+    }
+}
+$nav-btn-width: 40px;
+.page-nav {
+    > div {
+        text-align: center;
+        position: relative;
+    }
+    .btn {
+        display: inline-block;
+        color: #555;
+        width: $nav-btn-width;
+        height: $nav-btn-width;
+        line-height: $nav-btn-width;
+        text-align: center;
+        border-radius: 50%;
+        @include the-transition(background-color);
+        @include pressed() {
+            background-color: #bbb;
+        }
+        &.active {
+            background-color: $plastic-green;
+            color: #fff;
+        }
+        &.dotted:before {
+            content: "\22EF";
+        }
+        &.disabled {
+            color: #aaa;
+        }
+    }
+}
+.page-nav-mobile {
+    display: none;
+    @include page-nav-mobile(){
+        margin: 0 5px;
+        padding: 5px;
+        display: inline-block;
+        color: #555;
+        border-radius: 2px;
+        @include pressed(){
+            background-color: #bbb;
+            color: #555;
+        }
+    }
+}
+.page-nav-popup-container {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    visibility: hidden;
+}
+ul#page-nav-popup {
+    display: inline-block;
+    list-style: none;
+    visibility: hidden;
+    background-color: #fff;
+    border-radius: 2px;
+    @include shadow-base();
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    @include transform(scale(0));
+    @include the-transition(all);
+    > li {
+        display: inline-block;
+        margin: 0 2px;
+    }
+    &.show {
+        visibility: visible;
+        @include transform(scale(1));
+    }
+}

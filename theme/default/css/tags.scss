@@ -1,0 +1,28 @@
+@mixin mobile-tags {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+.tag-cloud {
+    // @extend %clearfix;
+    list-style: none;
+    text-align: center;
+    font-size: $base-font-size * 0.8;
+    @include mobile-tags() {
+        font-size: $base-font-size * 0.5;
+    }
+    > li {
+        // float: left;
+        display: inline-block;
+        margin: 8px;
+    }
+    a {
+        display: inline-block;
+        color: #eee;
+        background-color: rgb(5, 176, 255);
+        padding: 8px;
+        border-radius: 5px;
+        @include shadow-base();
+        // box-shadow: 2 2 4px #ccc;
+    }
+}

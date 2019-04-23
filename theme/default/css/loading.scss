@@ -1,0 +1,30 @@
+
+@keyframes loading-square {
+    0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+    50% { transform: perspective(120px) rotateX(180deg) rotateY(0deg); }
+    100% { transform: perspective(120px) rotateX(180deg) rotateY(180deg); }
+}
+@-webkit-keyframes loading-square {
+    0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+    50% { transform: perspective(120px) rotateX(180deg) rotateY(0deg); }
+    100% { transform: perspective(120px) rotateX(180deg) rotateY(180deg); }
+}
+@-moz-keyframes loading-square {
+    0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+    50% { transform: perspective(120px) rotateX(180deg) rotateY(0deg); }
+    100% { transform: perspective(120px) rotateX(180deg) rotateY(180deg); }
+}
+
+#search-loading {
+    &.show:before {
+        content: " ";
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 20px auto;
+        background-color: $top-border-color;
+        animation: loading-square 1.2s infinite ease-in-out;
+        -webkit-animation: loading-square 1.2s infinite ease-in-out;
+        -moz-animation: loading-square 1.2s infinite ease-in-out;
+    }
+}
