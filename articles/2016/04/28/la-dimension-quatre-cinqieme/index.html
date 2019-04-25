@@ -1,0 +1,179 @@
+<!DOCTYPE html><html><head><title>Hadroncfy's Notebook</title><link href="/css/main.css" type="text/css" rel="stylesheet"><script> (function(){})(); </script><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></head><body><header class="main-header clearfix"><div class="banner"><hgroup><h1>Welcome to</h1><h1>Hadroncfy's Notebook</h1></hgroup></div><nav class="site-nav clearfix" id="main-nav"><a href="javascript:;" id="btn-collapse" class="nav-btn"><i class="fas fa-bars"></i></a><ul class="nav-list right"><li><a href="javascript:;" class="nav-btn" id="btn-search"><span class="nav-icon-btn"><i class="fas fa-search"></i></span></a></li><li><a href="/rss.xml" class="nav-btn"><span class="nav-icon-btn"><i class="fas fa-rss"></i></span></a></li></ul><ul class="nav-list collapse" id="main-nav-list"><li class="collapse"><a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a></li><li><a href="/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-item-name">Home</span></a></li><li><a href="/archive/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-archive"></i></span><span class="nav-item-name">Archive</span></a></li><li><a href="/category/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-item-name">Categories</span></a></li><li><a href="/tags/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-tags"></i></span><span class="nav-item-name">Tags</span></a></li></ul><div class="overlay"></div></nav></header><div class="outter-container"><div class="main-container"><article class="article-main"><header class="article-title-container"><h1 class="article-title">四维几何学 5－超球与双旋转</h1><div class="article-info-container"><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-calendar-alt"></i></span><time class="post-date" title="Created on" datetime="2016-04-28T09:47:26.000Z">2016-4-28</time></span><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-folder-open"></i></span><a href="/category/old-blog/">Old blog</a><span class="category-divider"><i class="fas fa-chevron-right"></i></span><a href="/category/old-blog/四维几何学/">四维几何学</a></span></div></header><div class="article-inner-container indent"><p>在<a href="/2016/04/21/axial-vectors/">这篇文章</a>里面我们曾提到过四维空间中的双旋转，下面我们进一步的来讨论一下。由于在超球上的圆周可以球极投影，更便于可视化，所以我们将从超球面上的双旋转开始，会发现双旋转就是我们熟悉的李萨如图形的类比，之后我们会讨论双旋转与Hopf纤维丛的关系。文章最后介绍了双旋转矩阵的一般求法，并用这种方法解决了以前一篇文章中留下来的问题。</p><div class="head2-wrapper" id="重点内容"><h2>重点内容</h2></div><ul><li>双旋转的表示</li><li>四维空间中的李萨如图形类似物</li><li>环面上的双旋转轨迹的结构</li><li>Hopf纤维丛</li><li>旋转生成元</li></ul><!--more--><div class="head2-wrapper" id="四维空间中的旋转"><h2>四维空间中的旋转</h2></div><p>我们知道，在三维空间中一个点可以在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>面中旋转，它的轨迹在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>面上的投影就是一个圆，那么在四维空间里面由于有四个坐标轴，那么一个旋转的点的轨迹就可以存在这种情况：这个轨迹在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>和<script type="math/tex">%<![CDATA[
+Ozt
+%]]></script>面中的投影都是圆！注意这两个平面是绝对垂直的，所以它们是相互没有影响的，并且有可能这两个圆的半径和相位都不同。这种旋转我们称为<strong>双旋转</strong>。</p><p>我们也可以通过旋转矩阵的方式来看这种旋转模式。既然三维空间的旋转矩阵是一个3x3的方阵，那么四维空间的就是4x4的方阵。既然矩阵是4x4的那么就可能可以被分块，所以我们先考虑这么一个被分块了的旋转矩阵：</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf\Lambda}=\begin{pmatrix}\cos\theta_1&-\sin\theta_1&0&0\\\sin\theta_1&\cos\theta_1&0&0\\0&0&\cos\theta_2&-\sin\theta_2\\0&0&\sin\theta_2&\cos\theta_2\end{pmatrix}
+%]]></script></div><p>把它代入到旋转变换的方程<script type="math/tex">%<![CDATA[
+{\bf r}^\prime={\bf\Lambda}{\bf r}
+%]]></script>中，我们发现坐标<script type="math/tex">%<![CDATA[
+(x,y)
+%]]></script>与坐标<script type="math/tex">%<![CDATA[
+(z,t)
+%]]></script>在这个旋转变换下是相互独立的：</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{pmatrix}x^\prime\\y^\prime\end{pmatrix}=\begin{pmatrix}\cos\theta_1&-\sin\theta_1\\\sin\theta_1&\cos\theta_1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}
+%]]></script></div><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{pmatrix}z^\prime\\t^\prime\end{pmatrix}=\begin{pmatrix}\cos\theta_2&-\sin\theta_2\\\sin\theta_2&\cos\theta_2\end{pmatrix}\begin{pmatrix}z\\t\end{pmatrix}
+%]]></script></div><p>也就是说，整个空间中除了原点其他的点都在旋转！和二维空间还有点类似哦。空间中的每一点都有一个线速度矢量，这些矢量就构成了四维空间中的一个矢量场，称为<strong>双旋转场</strong>，它的场线其实就是这些点的轨迹。二维空间的旋转场的场线是一个个同心圆，那么四维空间的双旋转呢？这就有点抽象了，不过我们知道旋转是不会改变一个点与原点的距离的，双旋转也一样，所以参与双旋转的这些点的轨迹都在一族以原点为球心的同心超球上！因此我们就可以通过球极投影来观察它们。</p><p>既然一个双旋转的点的轨迹在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>和<script type="math/tex">%<![CDATA[
+Ozt
+%]]></script>上的投影是两个半径可能不同圆，那么如果这个点是在单位超球上就一定满足这两个半径的平方和为1，为了方便我们就分别把它们设为<script type="math/tex">%<![CDATA[
+\cos\varphi
+%]]></script>和<script type="math/tex">%<![CDATA[
+\sin\varphi
+%]]></script>。这样我们就可以写出一个双旋转的点的参数方程：</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{cases}
+x=\cos\theta_1\cos\varphi\\
+y=\sin\theta_1\cos\varphi\\
+z=\sin\varphi\cos(\theta_2+\alpha)\\
+t=\sin\varphi\sin(\theta_2+\alpha)
+\end{cases}
+%]]></script></div><p>如果以时间为参数的话那么<script type="math/tex">%<![CDATA[
+\theta_1 = \omega_1 t
+%]]></script>以及<script type="math/tex">%<![CDATA[
+\theta_2 = \omega_2 t
+%]]></script>。把这个方程代入球极投影的公式<script type="math/tex">%<![CDATA[
+\vec{x}=2\vec{x} / (1-t)
+%]]></script>就得到我们想要的双旋转轨迹的球极投影了，由于方程有点复杂这里我就不写出来了。</p><p>那么参数<script type="math/tex">%<![CDATA[
+\varphi
+%]]></script>的意义是什么呢？双旋转也是一种圆周运动，所以它的轨迹其实就是一个单位圆。而这个单位圆就是这个点旋转所在平面内的一个圆，它在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>和<script type="math/tex">%<![CDATA[
+Ozt
+%]]></script>面内的投影也是圆，半径分别为<script type="math/tex">%<![CDATA[
+\cos\varphi
+%]]></script>和<script type="math/tex">%<![CDATA[
+\sin\varphi
+%]]></script>。那么，根据前面文章里面讲的单位圆投影法我们就知道这个点旋转的所在平面与<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>和<script type="math/tex">%<![CDATA[
+Ozt
+%]]></script>都是<strong>等角平面</strong>！<script type="math/tex">%<![CDATA[
+\varphi
+%]]></script>就是这个平面与<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>的最大角与最小角。所以这些双旋转的轨迹就是由一系列处在不同等角平面上的轨迹组成的。</p><div class="head2-wrapper" id="李萨如图形的类比"><h2>李萨如图形的类比</h2></div><p>既然双旋转分为两个相互独立的旋转，那么它就可以看成是在两个绝对垂直面上的两个圆周运动的合运动，这其实就是大学物理里面讲的在两个相互垂直方向上的简谐运动的类比！当这两个简谐运动的频率比取不同的值时合运动的轨迹就称为李萨如图形，那么双旋转的轨迹也是一样的！下面我们就来看一下当<script type="math/tex">%<![CDATA[
+\omega_1 / \omega_2
+%]]></script>取不同值时的四维李萨如图形。</p><h3><script type="math/tex">%<![CDATA[
+\frac{\omega_1}{\omega_2} = 1
+%]]></script></h3><p>这是最简单的情况，投影是一个圆，和简谐振动一样。 </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/circle.png" alt="圆形轨迹" /><figcaption><span>圆形轨迹</span></figcaption></figure></div></div><h3><script type="math/tex">%<![CDATA[
+\frac{\omega_1}{\omega_2} = \frac12
+%]]></script></h3><div class="p-with-img"><div class="img-container"><figure><img src="/static/img/2016/knot2.png" alt="双叶结" /><figcaption><span>双叶结</span></figcaption></figure></div></div><h3><script type="math/tex">%<![CDATA[
+\frac{\omega_1}{\omega_2} = 4
+%]]></script></h3><div class="p-with-img"><div class="img-container"><figure><img src="/static/img/2016/m4-1.png" alt="4比1" /><figcaption><span>4比1</span></figcaption></figure></div></div><h3><script type="math/tex">%<![CDATA[
+\frac{\omega_1}{\omega_2} = \frac56
+%]]></script></h3><p>这次我们把分子分母取得比较大，发现李萨如图形有点像环面： </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/m5-6.png" alt="有点像环面了" /><figcaption><span>有点像环面了</span></figcaption></figure></div><p> 这暗示了可能这些轨迹都在一个环面上，下面我们会详细讲。</p></div><h3><script type="math/tex">%<![CDATA[
+\frac{\omega_1}{\omega_2} = \frac23
+%]]></script></h3><div class="p-with-img"><div class="img-container"><figure><img src="/static/img/2016/trefoi.png" alt="三叶结" /><figcaption><span>三叶结</span></figcaption></figure></div><p> 这个图形叫做<strong>三叶结</strong>，它在拓扑学和纽结理论中经常出现。它的俯视图是这样的： </p></div><div class="p-with-img"><div class="img-container"><figure><img src="/static/img/2016/trefoi-top.png" alt="三叶结" /><figcaption><span>三叶结</span></figcaption></figure></div><p> 数学中的三叶结一般指的是没被球极投影的三叶结。我记得大物实验中用示波器观察李萨如图形时当频率比为<script type="math/tex">%<![CDATA[
+2/3
+%]]></script>时出现了一个和这个三叶结很像的图形，其实那就是三叶结在三维空间中的正交投影！</p></div><p>我们还可以让这些双旋转的轨迹在四维空间里面旋转，更好的了解它们的结构。比如下面就是在<script type="math/tex">%<![CDATA[
+Oyt
+%]]></script>面中旋转的三叶结： </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/trefoi.gif" alt="旋转的三叶结" /><figcaption><span>旋转的三叶结</span></figcaption></figure></div></div><p>其实角速度比互为倒数的两个轨迹可以通过这样的在四维空间里面旋转相互转化，比如<script type="math/tex">%<![CDATA[
+\omega_1 / \omega_2 = 3/2
+%]]></script>的轨迹是这样的： </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/trefoi2.png" alt="另一个三叶结（侧视图）" /><figcaption><span>另一个三叶结（侧视图）</span></figcaption></figure></div><p> 正好可以通过上面那个三叶结旋转得到。这也就意味着它们的形状其实是一样的，只是在四维空间中的摆放方向不同。</p></div><div class="head2-wrapper" id="环面结构"><h2>环面结构</h2></div><p>上面我们看到的都只是某一个双旋转的点的轨迹，即<script type="math/tex">%<![CDATA[
+\varphi
+%]]></script>和<script type="math/tex">%<![CDATA[
+\alpha
+%]]></script>为常数时得到的曲线。为了进一步地了解整个超球上的双旋转的情况，我们同时画出多个轨迹看它们的相互关系。以圆形轨道为例，我们来看一下任意两个轨迹之间的关系： </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/hopf-link.png" alt="霍普夫连环" /><figcaption><span>霍普夫连环</span></figcaption></figure></div><p> 这两个轨迹是相互扣在一起的！这种两个圆的连环叫做<strong>Hopf link</strong>。它的出现正是超球上的双旋转轨道两两不相交的实际体现，不仅仅是圆轨道，其他比值的轨道也是像这样扣在一起的。</p></div><p>然后我们取多个<script type="math/tex">%<![CDATA[
+\alpha
+%]]></script>的值然后同时画出这些轨迹。仍然取<script type="math/tex">%<![CDATA[
+\omega_1 / \omega_2 = 1
+%]]></script>，我们得到这样的图形： </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/torus1.png" alt="环面" /><figcaption><span>环面</span></figcaption></figure></div><p> 这些圆组成了一个环面！也就是说当<script type="math/tex">%<![CDATA[
+\varphi
+%]]></script>为常数，即在角度相等的等角平面上的所有轨迹的投影都在一个环面上！这对其他的比值也是成立的，比如三叶结： </p></div><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/trefoi-torus.png" alt="环面与三叶结" /><figcaption><span>环面与三叶结</span></figcaption></figure></div><p> 要证明也不难，只是计算有点麻烦，不过还好有Mathematica，利用它不仅可以证明这些轨迹都在环面上，还可以计算出环面的大小半径分别为<script type="math/tex">%<![CDATA[
+R=2\sec\varphi
+%]]></script>和<script type="math/tex">%<![CDATA[
+r=2\tan\varphi
+%]]></script>（所以我才能同时画出三叶结和圆环）。</p></div><p>如果我们再改变<script type="math/tex">%<![CDATA[
+\phi
+%]]></script>就可以得到一系列这样由一些圆（或四维李萨如图形）组成的环面，这些圆填满了整个三维空间，这就是整个超球上的双旋转轨迹的球极投影： </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/fibration.png" alt="整个空间的双旋转" /><figcaption><span>整个空间的双旋转</span></figcaption></figure></div><p> 这样我们就把超球上的双旋转场投影成了三维空间中的矢量场。这个填满整个三维空间的结构不仅是超球上双旋转场的球极投影，它也是<strong>Hopf纤维丛</strong>，我们马上就会讲到。现在我们知道了每个等角平面上的轨迹投影都有类似的结构，所以我们只需用搞清楚一个环面结构就可以了。</p></div><p>令<script type="math/tex">%<![CDATA[
+\omega_1 = 1,\omega_2 = 0
+%]]></script>以及<script type="math/tex">%<![CDATA[
+\omega_1 = 0, \omega_2 = 1
+%]]></script>就可以得到另外两簇轨迹，分别对应在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>面中的单旋转和<script type="math/tex">%<![CDATA[
+Ozt
+%]]></script>面中的单旋转，它们和两簇<script type="math/tex">%<![CDATA[
+\omega_1 / \omega_2 = 1
+%]]></script>的双旋转场线一起构成了环面上的四簇圆。为什么双旋转有两簇呢？这是因为它是有手性的，“左旋”双旋转场对应<script type="math/tex">%<![CDATA[
+\omega_1 / \omega_2 = -1
+%]]></script>，“右旋”对应<script type="math/tex">%<![CDATA[
+\omega_1 / \omega_2 = 1
+%]]></script> </p><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/cercles.png" alt="环面上的四簇圆" /><figcaption><span>环面上的四簇圆</span></figcaption></figure></div><p> 图上红色和蓝色的圆对应在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>和<script type="math/tex">%<![CDATA[
+Ozt
+%]]></script>面中的单旋转，两簇不同方向的黄色圆代表两种手性的双旋转。为了能更清楚的看出这四簇圆的相交关系，我们分别画出四簇的一个圆： </p></div><div class="p-with-img partial"><div class="img-container"><figure><img src="/static/img/2016/torus2.png" alt="四簇圆中的一个" /><figcaption><span>四簇圆中的一个</span></figcaption></figure></div><p> 四个圆相交的那个点很好理解，可以认为它是旋转的起点。但我们发现两个黄色的圆在圆环的另一边也有一个交点，也就是说从一点出发分别沿左旋和右旋的两种轨迹旋转180度后会到达同一点，这就是四维空间中的反射变换！偶数维空间中可以通过旋转得到反射变换，如二维和四维空间，而奇数维则不行，因为奇数维有一个维度在旋转中不能被配对，在旋转完成后这个维度的坐标不能被反号。</p></div><div class="head2-wrapper" id="hopf纤维丛"><h2>Hopf纤维丛</h2></div><p>这部分内容都来自<a href="http://list.youku.com/albumlist/show?id=2376313&ascending=1&page=1">维度数学漫步７：纤维丛</a>，大家可以到<a href="http://www.dimensions-math.org/Dim_CH7_ZH_si.htm">官网</a>上看一下霍普夫纤维丛的介绍，wxy的文章<a href="http://wxyhly.github.io/2016/04/16/fibration4ds/">四维空间（四）：纤维与超球</a>也对纤维丛有详细介绍。</p><p>我们刚刚看到的双旋转场的球极投影其实就是Hopf纤维丛的球极投影。下面我们简单讲一下Hopf纤维丛是怎么得到的。 既然四维空间有xyzt四个坐标，那么我就可以定义两个复数<script type="math/tex">%<![CDATA[
+z_1 = z + iy
+%]]></script>和<script type="math/tex">%<![CDATA[
+z_2 = z + it
+%]]></script>，这样就使得四维空间变成了一个复二维空间，从而简化了四维几何问题。空间中包含<script type="math/tex">%<![CDATA[
+z_1
+%]]></script>和<script type="math/tex">%<![CDATA[
+z_2
+%]]></script>两个坐标轴在在内的直线都是复直线，也就是一个实平面，它们在复二维空间中只交于一点。</p><p>为了得到纤维丛，Hopf在复平面中画了一条方程为<script type="math/tex">%<![CDATA[
+z_2=az_1
+%]]></script>的直线，a是一个复数。我们知道复数相乘就等于模长相乘幅角相加，那么<script type="math/tex">%<![CDATA[
+z_2
+%]]></script>与<script type="math/tex">%<![CDATA[
+z_1
+%]]></script>就相差一个幅角，这样如果平面中的一个圆在<script type="math/tex">%<![CDATA[
+Oxy
+%]]></script>面，即<script type="math/tex">%<![CDATA[
+z_1
+%]]></script>轴上的投影是一个半径为1的圆，那么它在<script type="math/tex">%<![CDATA[
+z_2
+%]]></script>上的投影就是半径为<script type="math/tex">%<![CDATA[
+|a|
+%]]></script>的圆，所以这条复直线代表的平面就是我们上面说到的等角平面！</p><p>这个平面与单位超球<script type="math/tex">%<![CDATA[
+|z_2|^2 + |z_1|^2=1
+%]]></script>会交于一个圆，这样对于每个复数a都对应一个圆，我们可以把这些圆球极投影下来，当a的模长一定时得到的一簇圆就是我们上面看到的环面！改变它的模长，我们就得到和双旋转场一样的图形了。</p><p>其实研究拓扑学的数学家对这种几何结构并不感兴趣，纤维丛也不是这样的一个几何图形，它其实也是一种映射。由于a是复数，我们知道二维球面<script type="math/tex">%<![CDATA[
+{\bf S}^2
+%]]></script>上的每一点都可以通过球极投影对应到复平面上，再加上北极点。而每一个复数a都对应<script type="math/tex">%<![CDATA[
+{\bf S}^3
+%]]></script>上的一个圆，这样，每个<script type="math/tex">%<![CDATA[
+{\bf S}^2
+%]]></script>上的点都对应<script type="math/tex">%<![CDATA[
+{\bf S}^3
+%]]></script>中的一个<script type="math/tex">%<![CDATA[
+{\bf S}^2
+%]]></script>，这样我们就建立了<script type="math/tex">%<![CDATA[
+{\bf S}^1\to{\bf S}^3\to{\bf S}^2
+%]]></script>的对应关系。关于纤维丛的严格定义大家可以到<a href="https://en.wikipedia.org/wiki/Fiber_bundle">维基百科</a>或者wxy的文章上去看一下。</p><p>我们知道任意角速度比都可以得到环面结构，所以任意比值的双旋转场都可以得到一个纤维丛！Hopf纤维丛只是这类纤维丛中的一个特例。在模形式里面经常遇到三叶结纤维丛。在一般情形下纤维丛的映射关系就成了<script type="math/tex">%<![CDATA[
+李萨如图形\to{\bf S}^3\to{\bf S}^2
+%]]></script>。</p><hr /><div class="head2-wrapper" id="旋转生成元"><h2>旋转生成元</h2></div><p>好了，既然我们现在已经搞清楚双旋转了，那么我们唯一还想知道都就是怎么求任意双旋转的旋转矩阵。这可以用指数映射方法，即旋转矩阵可以写成<script type="math/tex">%<![CDATA[
+{\bf\Lambda}=e^{A\theta}
+%]]></script>，其中A称为<strong>旋转生成元</strong>，它就是旋转的角速度2-矢量的矩阵形式（可以去看一下<a href="/2016/04/21/axial-vectors/">这篇文章</a>），只不过要求角速度是单位角速度，即大小为1。</p><p>那么怎么计算<script type="math/tex">%<![CDATA[
+e^{A\theta}
+%]]></script>呢？维基上的<a href="https://en.wikipedia.org/wiki/Matrix_exponential#Rotation_case">这个词条</a>讲到了计算方法，基本思路就是：我们可以证明<script type="math/tex">%<![CDATA[
+A^3=-A
+%]]></script>，即A的指数次幂有周期性，所以我们可以把指数函数用泰勒级数展开，从而得到<script type="math/tex">%<![CDATA[
+{\bf\Lambda}=I+A^2(1-\cos\theta)+A\sin\theta
+%]]></script>，这样只要知道了“角速度”我们就可以很方便的得到旋转矩阵。这个方法不仅可以用于四维的双旋转，其他维的旋转也可以，不同的就只是生成元的矩阵阶数不同。像jenn3d这种四维可视化软件里面的鼠标旋转就可以用这种方法；在OpenGL程序中如果需要旋转坐标就可以直接写出旋转矩阵而不需要先转到坐标轴上再旋转了。</p><p>记得我以前的<a href="/article/2016/04/06/coriolis-force-derivation/">一篇讲科里奥利力的文章</a>中有一个历史遗留问题，就是当角速度为任意值时的科里奥利力表达式。现在我们有了这种指数映射法就可以很方便的解决。</p><p>我们的角速度2-矢量为<script type="math/tex">%<![CDATA[
+{\bf\omega}
+%]]></script>，那么旋转的变换矩阵就可以写成<script type="math/tex">%<![CDATA[
+{\bf\Lambda}=e^{\omega t}
+%]]></script>，与上面的不同只在于这里的参数是时间。所以代入我们之前推出来的科里奥利力表达式我们得到</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{align}
+{\bf F}_2&=-2m{\bf\Lambda}^{-1}\dot{\bf\Lambda}\dot{\bf r}\\
+&=-2me^{-\omega t}\omega e^{\omega t}\vec{v}\\
+&=-2m{\bf\omega}\cdot\vec{v}\\
+&=2m(\star\vec{\omega})\cdot\vec{v}=2m\vec{v}\times\vec{\omega}
+\end{align}
+%]]></script></div><p>其中我们用到了角速度2-矢量的定义和公式<script type="math/tex">%<![CDATA[
+\vec{a}\times\vec{b}=\star(\vec{a}\land\vec{b})
+%]]></script>以及<script type="math/tex">%<![CDATA[
+(\star\vec{a})\cdot\vec{b}=-\star(\vec{a}\land\vec{b})
+%]]></script>，如果大家还不了解可以去看一下我的<a href="/2016/04/21/axial-vectors/">这篇文章</a>。 其实在物理里面经常出现像<script type="math/tex">%<![CDATA[
+e^{F\alpha}
+%]]></script>的指数映射，代表的都是一种变换群的元素，比如自旋群、洛伦兹群等，在以后的文章里面会涉及到。</p><hr /><div class="head2-wrapper" id="思考题"><h2>思考题</h2></div><p>我感觉前两道题难度有点大了，所以这次来一个简单的。在上面对双旋转的讨论中我们并没有单独讨论两个极端位置的轨迹——超球的北极点和南极点，其中南极点就是球极投影空间与超球的切点。你能想出北极点和南极点的轨迹的球极投影吗？ 上次的答案： 三维环面是圆绕与它共面的旋转轴转出来的旋转面，那么我们有两种方法类比环面：</p><ul><li>把球在一个面中旋转，即沿一个圆“<a href="http://baike.baidu.com/view/938814.htm">放样</a>”，得到<strong>球环</strong></li><li>把圆沿一个球“放样”，得到<strong>环球</strong></li></ul><p>这两个环面类比的方程分别为<script type="math/tex">%<![CDATA[
+(x^2+y^2+z^2+t^2+R^2-r^2)^2=4R^2(x^2+y^2)
+%]]></script>和<script type="math/tex">%<![CDATA[
+(x^2+y^2+z^2+t^2+R^2-r^2)^2=4R^2(x^2+y^2+z^2)
+%]]></script>。它们的截面动画分别为：</p><div class="p-with-img"><div class="img-container"><figure><img src="/static/img/2016/torus4d3.gif" alt="球环" /><figcaption><span>球环</span></figcaption></figure></div></div><div class="p-with-img"><div class="img-container"><figure><img src="/static/img/2016/torus4d2.gif" alt="环球" /><figcaption><span>环球</span></figcaption></figure></div></div></div><footer class="post-footer"><a class="btn-tag" href="/tags/四维/" title="Tag: 四维"><i class="fas fa-tag"></i>四维</a><a class="btn-tag" href="/tags/几何/" title="Tag: 几何"><i class="fas fa-tag"></i>几何</a><a class="btn-tag" href="/tags/mathematica/" title="Tag: Mathematica"><i class="fas fa-tag"></i>Mathematica</a><a class="btn-tag" href="/tags/pov-ray/" title="Tag: POV-Ray"><i class="fas fa-tag"></i>POV-Ray</a></footer></article></div></div><footer class="main-footer"><div class="footer-row-2"><div class="footer-right"><span>Links</span><ul class="link-list"><li><a href="https://zzy.blog.ustc.edu.cn/" target="_blank">zzy(BG6GCZ)</a></li><li><a href="https://wxyhly.github.io/" target="_blank">wxy</a></li><li><a href="https://www.futantan.com/" target="_blank">futantan</a></li></ul></div><div class="divider"></div><div class="footer-left"><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p><p>Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.</p><p><i class="fab fa-html5"></i> <a href="http://validator.w3.org/check?uri=http://hadroncfy.com/articles/2016/04/28/la-dimension-quatre-cinqieme/index.html" target="_blank">Validate HTML5</a></p></div></div></footer><div id="search-panel"><div class="search-inner empty" id="search-inner"><div class="search-input-container"><a id="btn-clear-search"><i class="fas fa-times"></i></a><input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." /></div><div class="search-result-container"><ul id="search-result"></ul><div id="search-loading" class="show"></div><div id="search-no-result-hint"><p class="icon"><i class="fas fa-search"></i></p><p class="text">No result found.</p></div></div></div></div><a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a><script src="/js/main.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script></body></html>

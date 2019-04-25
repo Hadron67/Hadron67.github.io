@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><title>Hadroncfy's Notebook</title><link href="/css/main.css" type="text/css" rel="stylesheet"><script> (function(){})(); </script><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></head><body><header class="main-header clearfix"><div class="banner"><hgroup><h1>Welcome to</h1><h1>Hadroncfy's Notebook</h1></hgroup></div><nav class="site-nav clearfix" id="main-nav"><a href="javascript:;" id="btn-collapse" class="nav-btn"><i class="fas fa-bars"></i></a><ul class="nav-list right"><li><a href="javascript:;" class="nav-btn" id="btn-search"><span class="nav-icon-btn"><i class="fas fa-search"></i></span></a></li><li><a href="/rss.xml" class="nav-btn"><span class="nav-icon-btn"><i class="fas fa-rss"></i></span></a></li></ul><ul class="nav-list collapse" id="main-nav-list"><li class="collapse"><a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a></li><li><a href="/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-item-name">Home</span></a></li><li><a href="/archive/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-archive"></i></span><span class="nav-item-name">Archive</span></a></li><li><a href="/category/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-item-name">Categories</span></a></li><li><a href="/tags/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-tags"></i></span><span class="nav-item-name">Tags</span></a></li></ul><div class="overlay"></div></nav></header><div class="outter-container"><div class="main-container"><article class="article-main"><header class="article-title-container"><h1 class="article-title">辨析科里奥利力</h1><div class="article-info-container"><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-calendar-alt"></i></span><time class="post-date" title="Created on" datetime="2016-04-06T14:44:04.000Z">2016-4-6</time></span><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-folder-open"></i></span><a href="/category/old-blog/">Old blog</a></span></div></header><div class="article-inner-container indent"><p>记得大一讲科里奥利力时，我总是觉得书上的推导太复杂，不够直观，而且没有一般性，于是就自己想出了一种更直观而且一般性更强的推导方式．</p><div class="head2-wrapper" id="qu'est-ce-que-le-科里奥利力？"><h2>qu'est-ce que le 科里奥利力？</h2></div><p>在讲我的方法前，先科普一下科里奥利力吧． 试想一个旋转着的大转盘，你站在转盘的边缘，向转盘中心扔一个小球，请问小球会不会经过转盘的中心？如果不会，那么小球在你看来的运动轨迹是什么样的呢？</p><p>显然，远离转盘中心的线速度是大于转盘中心的，但小球在向中心方向运动的过程中线速度是不会减小的，因此如果以你自己为参考系，小球并不会沿直线运动，也就不会经过中心．</p><p>我在知道科里奥利力之前是这样想的：如果以你自己为参考系，小球就会受到一个沿远离转盘中心方向（径向）向外的离心力，由于和小球运动方向相同，所以并不会影响小球的运动方向相同，于是就和上面的结论矛盾了！</p><!--more--><p>到底错在哪呢？原来当我选自己为参考系后，小球不仅受到径向方向上的离心力，还受到了<strong>科里奥利力</strong>，正是这个力使得小球偏离了直线轨迹．下面的这张图展示了受到科里奥利力和离心力的小球的运动轨迹． </p><div class="p-with-img partial"><div class="img-container"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Corioliskraftanimation.gif" alt="（图片来自维基百科）" /><figcaption><span>（图片来自维基百科）</span></figcaption></figure></div></div><p>大家如果学过大学物理应该知道科里奥利力的计算公式是</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\vec{F}_{\text{coriolis}}=2m\vec{v}\times\vec{\omega}
+%]]></script></div><p>其中<script type="math/tex">%<![CDATA[
+m
+%]]></script>是小球（物体）的质量，<script type="math/tex">%<![CDATA[
+\vec{\omega}
+%]]></script>是转盘的角速度，<script type="math/tex">%<![CDATA[
+\vec{v}
+%]]></script>是小球的速度． 是不是很像洛伦兹力的公式<script type="math/tex">%<![CDATA[
+\vec{F}_{q}=q\vec{v}\times\vec{B}
+%]]></script>！我们发现科里奥利力与离心力有很大的不同：离心力只与小球的位置有关，而科里奥利力只与小球的速度有关．由于这两种惯性力本质是相同的，而性质却有极大的差异，因此我们把离心力这种惯性力称为<strong>第一类惯性力</strong>，把科里奥利力称为<strong>第二类惯性力</strong>．</p><p>大家最熟悉的科里奥利力的例子应该就是高中地理讲的地转偏向力了吧，由于地球有自转，所以存在科里奥利力，只不过南北半球的方向不一样．地转偏向力可以使得空气产生环形的流动，进而形成气旋，如果气旋足够强大就有可能演变为台风．</p><p>目前科里奥利力已经用在了很多地方，比如科里奥利流量计，它通过测定液体所受到的科里奥利力的大小来测定流速；还有我做四轴飞行器用到的微机械陀螺仪MPU6050，它里面有一个微型的振子，当被测物体旋转时振子由于受到科里奥利力的作用从而偏离平衡位置，测出偏移量后便可计算出物体的转动角速度．</p><hr /><div class="head2-wrapper" id="定量推导"><h2>定量推导</h2></div><p>好了，现在来说重点．在前面的介绍中我们已经知道，科里奥利力会在转动的参考系中出现．其实任何非惯性系都有可能造成科里奥利力，因此为了使我们的讨论不失一般性，我们从惯性系到任意非惯性系之间的变换入手．最后我们会看到上面的转盘情形只是我们讨论的一个特例． 我们设<script type="math/tex">%<![CDATA[
+\vec{r}=(x,y,z)
+%]]></script>为某个物体在惯性系中的坐标，<script type="math/tex">%<![CDATA[
+{\vec{r}^\prime=(x^\prime,y^\prime,z^\prime)}
+%]]></script>为同一个物体在非惯性系中的坐标．为了能把这两种坐标之间的变换关系写成矩阵形式，我们进一步地把它们写成列向量，即：</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf r}=\begin{pmatrix}x\\y\\z\end{pmatrix},{\bf r}^\prime=\begin{pmatrix}x^\prime\\y^\prime\\z^\prime\end{pmatrix}
+%]]></script></div><p>之后出现的所有矢量，如加速度，力等，都类似地定义为列向量．</p><p>为了使讨论更加一般化，我们设<script type="math/tex">%<![CDATA[
+{\bf r}={\bf\Lambda}(t){\bf r}^\prime+{\bf s}(t)
+%]]></script>，其中<script type="math/tex">%<![CDATA[
+{\bf\Lambda}(t)
+%]]></script>是一个矩阵，它代表旋转；<script type="math/tex">%<![CDATA[
+{\bf s}(t)
+%]]></script>是一个矢量，代表平移．在之前的例子中，<script type="math/tex">%<![CDATA[
+{\bf s}(t)=0
+%]]></script>．</p><p>接下来就是重点了，我们知道，惯性系中物体的运动是满足牛顿定律的，即<script type="math/tex">%<![CDATA[
+{\bf F}=m{\bf a}=m\ddot{\bf r}
+%]]></script>（两点代表对时间求二次导），而非惯性系则不然．因此，为了得出非惯性参考系中的牛顿第二定律，我们把<script type="math/tex">%<![CDATA[
+{\bf F}={\bf\Lambda}{\bf F}^\prime
+%]]></script>以及<script type="math/tex">%<![CDATA[
+{\bf r}={\bf\Lambda}{\bf r}^\prime+{\bf s}
+%]]></script>代入上式，我们得到</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf\Lambda}{\bf F}^\prime=m\ddot{\bf\Lambda}{\bf r}^\prime+2m\dot{\bf\Lambda}\dot{\bf r}^\prime+m{\bf\Lambda}\ddot{\bf r}^\prime+m\ddot{\bf s}
+%]]></script></div><p>两边同时乘以<script type="math/tex">%<![CDATA[
+{\bf\Lambda}^{-1}
+%]]></script>，得到</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf F}^\prime-m{\bf\Lambda}^{-1}(\ddot{\bf\Lambda}{\bf r}^\prime+\ddot{\bf s})-2m{\bf\Lambda}^{-1}\dot{\bf\Lambda}\dot{\bf r}^\prime=m\ddot{\bf r}^\prime=m{\bf a}^\prime
+%]]></script></div><p>设</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf F}_1=-m{\bf\Lambda}^{-1}(\ddot{\bf\Lambda}{\bf r}^\prime+\ddot{\bf s})
+%]]></script></div><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf F}_2=-2m{\bf\Lambda}^{-1}\dot{\bf\Lambda}\dot{\bf r}^\prime
+%]]></script></div><p>则上式可以写成<script type="math/tex">%<![CDATA[
+{\bf F}^\prime+{\bf F}_{1}+{\bf F}_{2}=m{\bf a}^\prime
+%]]></script>．这也就是说，在非惯性系中物体所受到的<strong>有效</strong>力是由合外力加上<script type="math/tex">%<![CDATA[
+{\bf F}_{1}
+%]]></script>以及<script type="math/tex">%<![CDATA[
+{\bf F}_{2}
+%]]></script>，即就算物体没有受到外力的作用，它仍然受到<script type="math/tex">%<![CDATA[
+{\bf F}_{1}
+%]]></script>和<script type="math/tex">%<![CDATA[
+{\bf F}_{2}
+%]]></script>这两个“内禀”力的作用．注意<script type="math/tex">%<![CDATA[
+{\bf F}_{1}
+%]]></script>只与物体的位置有关，而<script type="math/tex">%<![CDATA[
+{\bf F}_{2}
+%]]></script>只与物体速度有关．因此实际上它们就是第一类惯性力与第二类惯性力！</p><p>不知大家发现没有，上面的推导过程始终没有体现出空间的维数，也就是说，上面的两个<script type="math/tex">%<![CDATA[
+{\bf F}_{1}
+%]]></script>和<script type="math/tex">%<![CDATA[
+{\bf F}_{2}
+%]]></script>的表达式是对任何维度的空间都成立的．</p><h3>两个特例</h3><p>虽然上面的那两个表达式具有很强的一般性，但却很不直观．下面我们来讨论两种特殊情形下<script type="math/tex">%<![CDATA[
+{\bf F}_{1}
+%]]></script>和<script type="math/tex">%<![CDATA[
+{\bf F}_{2}
+%]]></script>的表达式．</p><ul><li>匀加速参考系 在匀加速的情形下我们有<script type="math/tex">%<![CDATA[
+{\bf\Lambda}=I
+%]]></script>以及<script type="math/tex">%<![CDATA[
+\ddot{\bf s}={\bf a}
+%]]></script>，其中加速度<script type="math/tex">%<![CDATA[
+{\bf a}
+%]]></script>为常量．代入<script type="math/tex">%<![CDATA[
+{\bf F}_{1}
+%]]></script>和<script type="math/tex">%<![CDATA[
+{\bf F}_{2}
+%]]></script>的表达式我们得到</li></ul><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf F}_1=-m{\bf a},{\bf F}_2={\bf 0}
+%]]></script></div><p>即只有第一类惯性力而没有科里奥利力．高中竞赛中经常用到第一个式子．</p><ul><li>匀速转动参考系 为了简单起见我们考虑角速度为以特定方向的情形．设角速度<script type="math/tex">%<![CDATA[
+\omega
+%]]></script>的方向是沿z轴正方向，即<script type="math/tex">%<![CDATA[
+\vec{\omega}=(0,0,\omega)
+%]]></script>，那么</li></ul><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf\Lambda}=\begin{pmatrix}\cos\omega t & \sin\omega t & 0\\-\sin\omega t & \cos\omega t & 0\\0&0&1\end{pmatrix},{\bf s}={\bf 0}
+%]]></script></div><p>以及</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf\Lambda}^{-1}=\begin{pmatrix}\cos\omega t & -\sin\omega t & 0\\\sin\omega t & \cos\omega t & 0\\0&0&1\end{pmatrix},\ddot{\bf\Lambda}=-\omega^{2}{\bf\Lambda}
+%]]></script></div><p>（注意由于<script type="math/tex">%<![CDATA[
+{\bf\Lambda}
+%]]></script>实际上是逆变换矩阵，所以那个负号会在第二行） 同样地代入上面的两个公式，我们得到</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf F}_{1}=m\omega^{2}{\bf r}^\prime
+%]]></script></div><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+{\bf F}_{2}=2m\omega\begin{pmatrix}\dot y\\-\dot x\\0\end{pmatrix}=2m\vec{v}\times\vec{\omega}
+%]]></script></div><p>这正好就是离心力与科里奥利力的表达式．</p><blockquote><p>注：在<a href="/article/2016/04/28/la-dimension-quatre-cinqieme/#旋转生成元">以后的文章</a>中我们会讲到角速度的一种更好的表示方法－2矢量，我们会发现角速度2矢量和<script type="math/tex">%<![CDATA[
+{\bf\Lambda}
+%]]></script>有一个同构映射关系，这个关系会使得推导更加简单，而且<script type="math/tex">%<![CDATA[
+\vec{\omega}
+%]]></script>的方向是任意的．敬请期待哦:)．</p></blockquote><h3>深入思考</h3><p>好了，看了那么多公式，想必你也许已经够乱了吧？那我们现在来想一些轻松点的吧．你也许会问，既然科里奥利力的表达式和洛伦兹力那么像，它们之间是不是有什么联系呢？虽然我没有发现直接的联系，但我却有这种想法：是不是第一类惯性力相当于引力场的电场，而科里奥利力相当于引力场的磁场？唯一的区别就是不存在纯粹的科里奥利力场（因为要想<script type="math/tex">%<![CDATA[
+{\bf F}_{1}=0
+%]]></script>而<script type="math/tex">%<![CDATA[
+{\bf F}_{2}\neq0
+%]]></script>，这就要求<script type="math/tex">%<![CDATA[
+{\bf\Lambda}\neq I
+%]]></script>且<script type="math/tex">%<![CDATA[
+\ddot{\bf s}=-\ddot{\bf\Lambda}{\bf r}^\prime
+%]]></script>，由于<script type="math/tex">%<![CDATA[
+{\bf s}
+%]]></script>是与<script type="math/tex">%<![CDATA[
+{\bf r}^\prime
+%]]></script>无关的，所以第二个式子不可能成立）然而我们知道，在相对论中参考系的变换不可能把纯磁场变为纯电场，所以磁场和电场是不同的；然而纯科里奥利力场并不存在，所以任给一个非惯性系我都可以同个参考系的变换将科里奥利力消除掉．因此我们可以得到一个很失望的结论：科里奥利力场只是纯粹的参考系造成的观测效应．．．</p><hr /><p>虽然不能通过变换参考系的方式来产生纯科里奥利力场，但我们却可以通过外加一个力来抵消第一类惯性力的方式来制造纯科里奥利力场．回到开头的那个大转盘，如果转盘是光滑的（不一定全是光滑的，否则你就站不稳了．．．至少小球的运动区域是光滑的），然后将小球通过一个劲度系数<script type="math/tex">%<![CDATA[
+k=m\omega^{2}
+%]]></script>的弹簧连接到转盘中心上，由于小球受到的离心力被弹簧抵消了，因此只受到科里奥利力，然后，把它放在转盘上，给它一个初速度，然后你就可以看见它像磁场中的带电粒子一样开始做圆周运动了．．．</p></div><footer class="post-footer"><a class="btn-tag" href="/tags/动力学/" title="Tag: 动力学"><i class="fas fa-tag"></i>动力学</a><a class="btn-tag" href="/tags/相对论/" title="Tag: 相对论"><i class="fas fa-tag"></i>相对论</a><a class="btn-tag" href="/tags/新想法/" title="Tag: 新想法"><i class="fas fa-tag"></i>新想法</a></footer></article></div></div><footer class="main-footer"><div class="footer-row-2"><div class="footer-right"><span>Links</span><ul class="link-list"><li><a href="https://zzy.blog.ustc.edu.cn/" target="_blank">zzy(BG6GCZ)</a></li><li><a href="https://wxyhly.github.io/" target="_blank">wxy</a></li><li><a href="https://www.futantan.com/" target="_blank">futantan</a></li></ul></div><div class="divider"></div><div class="footer-left"><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p><p>Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.</p><p><i class="fab fa-html5"></i> <a href="http://validator.w3.org/check?uri=http://hadroncfy.com/articles/2016/04/06/coriolis-force-derivation/index.html" target="_blank">Validate HTML5</a></p></div></div></footer><div id="search-panel"><div class="search-inner empty" id="search-inner"><div class="search-input-container"><a id="btn-clear-search"><i class="fas fa-times"></i></a><input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." /></div><div class="search-result-container"><ul id="search-result"></ul><div id="search-loading" class="show"></div><div id="search-no-result-hint"><p class="icon"><i class="fas fa-search"></i></p><p class="text">No result found.</p></div></div></div></div><a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a><script src="/js/main.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script></body></html>
