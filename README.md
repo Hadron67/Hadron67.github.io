@@ -1,4 +1,4 @@
-# Blog [![Build Status](https://travis-ci.org/Hadron67/Hadron67.github.io.svg?branch=master)](https://travis-ci.org/Hadron67/Hadron67.github.io)
+# Blog [![Build Status](https://travis-ci.org/Hadron67/Hadron67.github.io.svg?branch=source)](https://travis-ci.org/Hadron67/Hadron67.github.io)
 
 This branch contains source of my blog [hadroncfy.com](https://hadroncfy.com), using my blog generator [Noteblog](https://github.com/Hadron67/Noteblog).
 
