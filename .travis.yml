@@ -7,6 +7,10 @@ install:
   - cd Noteblog
   - npm i
   - cd ..
+  - npm i rollup -g
+  - cd theme/default
+  - rollup -c
+  - cd ../..
 
 script:
   - mkdir dist
