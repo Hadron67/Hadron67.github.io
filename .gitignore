@@ -1,1 +1,4 @@
 dist
+private
+.deploy
+.deploy_git

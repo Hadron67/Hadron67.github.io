@@ -45,4 +45,3 @@ $$
     & \implies \omega_{\mu\nu} = -\omega_{\nu\mu}.
 \end{aligned}
 $$
-

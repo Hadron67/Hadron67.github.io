@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "11"
+
+install:
+  - git clone https://github.com/Hadron67/Noteblog.git
+  - cd Noteblog
+  - npm i
+  - cd ..
+
+script:
+  - mkdir dist
+  - ./Noteblog/cli/noteblog g
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: dist
+  on:
+    branch: master

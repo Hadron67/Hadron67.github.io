@@ -10,6 +10,13 @@ module.exports = main => {
     let monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let ext = main.ext;
     let oldBlogTime = ext.oldBlogTime;
+    let domain = 'localhost';
+    if (ext.env === 'Generate'){
+        domain = main.config.domain;
+    }
+    else if (ext.env === 'Server'){
+        domain = main.config.localDomain;
+    }
 
     function _forIn(obj, cb){
         let ret = [];
@@ -155,7 +162,7 @@ module.exports = main => {
                     '</p>',
                     '<p>',
                         '<i class="fab fa-html5"></i> ',
-                        `<a href="http://validator.w3.org/check?uri=http://${config.domain}${path}" target="_blank">`,
+                        `<a href="http://validator.w3.org/check?uri=http://${pathd.join(domain, path)}" target="_blank">`,
                             'Validate HTML5',
                         '</a>',
                     '</p>',
@@ -483,7 +490,7 @@ module.exports = main => {
     ]);
     
     let category = ({pages, node, pathBase, path, arg}) => outter([
-        "<h1>Categories</h1>",
+        '<h1 class="line1 icon"><i class="fas fa-folder-open"></i>Categories</h1>',
     ], 'Categories', path, [
         '<div class="category-outter-container">',
             '<header class="category-path">',
@@ -521,7 +528,7 @@ module.exports = main => {
     ]);
 
     let archive = ({pages, path, arg}) => outter([
-        '<h1>Archive</h1>'
+        '<h1 class="line1 icon"><i class="fas fa-archive"></i>Archive</h1>'
     ], 'Archive', path, [
         '<div class="archive-container">',
             postDateList(pages, arg),
@@ -543,7 +550,7 @@ module.exports = main => {
     }
 
     let tagCloud = ({tags, path}) => outter([
-        '<h1>Tag Cloud</h1>'
+        '<h1 class="line1 icon"><i class="fas fa-tags"></i>Tag Cloud</h1>'
     ], 'Tags', path, [
         '<ul class="tag-cloud">',
             () => {

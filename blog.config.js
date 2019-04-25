@@ -3,11 +3,19 @@
 const theme = require('./theme/default/index.js');
 const pathd = require('path');
 const _ = p => pathd.join(__dirname, p);
+const fs = require('fs');
+
+function read(file){
+    return new Promise((resolve, reject) => {
+        fs.readFile(file, (err, data) => err ? resolve('') : resolve(data.toString('utf-8')));
+    });
+}
 
 module.exports = async (app) => ({
     title: "Hadroncfy's Notebook",
     outDir: _('dist/'),
-    domain: '124.16.112.225:8080',
+    localDomain: await read(_('private/ip')),
+    domain: 'hadroncfy.com',
     author: 'hadroncfy',
 
     mathjaxURL: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML',
@@ -22,10 +30,10 @@ module.exports = async (app) => ({
     imagePath: '/static/img',
     
     plugins: [
-        app.staticDirs(_('src/static'), '/static'),
+        app.staticDirs(_('static'), '/static'),
         app.markdownPost([
-            _('src/posts'),
-            _('src/posts-old')
+            _('posts'),
+            _('posts-old')
         ], '/articles'),
         app.categoryManager({
             mainPage: {path: '/', pagesPerPage: 5},
@@ -42,7 +50,16 @@ module.exports = async (app) => ({
             limit: 10
         }),
         app.simpleMarkdownFilter(),
-        app.server(),
-        app.generator()
+        app.server({
+            port: 8080,
+            addr: 'localhost'
+        }),
+        app.gitDeployer({
+            url: 'https://github.com/Hadron67/Hadron67.github.io.git',
+            branch: 'master',
+            deployDir: _('.deploy_git')
+        }),
+        app.generator(),
+        app.cname()
     ]
 });
