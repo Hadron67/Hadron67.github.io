@@ -22,5 +22,6 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: true
   local-dir: dist
+  target-branch: master
   on:
-    branch: master
+    branch: source
