@@ -9,7 +9,7 @@ My future blogs will mainly be my notes that explain my understanding of things 
 
 <!-- more -->
 
-I have now switched my blog engine from Hexo to Jekyll, to obtain more freedom of site design. The main reason is the simplicity of Jekyll, I mean the site structure and configuration. Although generally speaking Hexo is an easy-to-use blog framework, it has some flaws that are intolerable for me. It doesn't take care of mathematical expressions in markdown file forces me to escape any Mathjax characters like `_` and `\\` that conflict with markdown, which was a pain. Another problem is any file - including non-markdown files like html and js, will be processed by the markdown renderer, even if I have added them to the exclude list. This is actually a bug, and haven't been fixed before I pausing updating my blog.
+I have now switched my blog engine from Hexo to my own one, [Noteblog](https://github.com/Hadron67/Noteblog), in order to obtain more freedom of site design. Although generally speaking Hexo is an easy-to-use blog framework, it has some flaws that are intolerable for me. It doesn't take care of mathematical expressions in markdown file forces me to escape any Mathjax characters like `_` and `\\` that conflict with markdown, which was a pain. Another problem is any file - including non-markdown files like html and js, will be processed by the markdown renderer, even if I have added them to the exclude list. This is actually a bug, and haven't been fixed before I pausing updating my blog.
 
 Posts from my old blog can be found under the category [Old blog](/category/old-blog/), I have editted their layout so they conform to the new blog framework.
 

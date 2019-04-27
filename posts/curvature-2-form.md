@@ -9,8 +9,9 @@ tags:
 ---
 ```mathjax-defs
 \def\tensor#1{{\bf #1}}
+\def\dd{\mathrm{d}}
 ```
-In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifold, solving the Enstein's equation one always needs to calculate the curvature tensor. But the component expression of Riemann tensor is too complicated, making it painful to calculate it by hand, and less powerful when dealing with various problems. This is where curvature 1-form comes out.
+In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifold, solving the Enstein's equation one always needs to calculate the curvature tensor. But the component expression of Riemann tensor is too complicated, making it painful to calculate it by hand, and less powerful when dealing with various problems. This is where curvature 2-form comes out.
 
 <!-- more -->
 
@@ -44,4 +45,8 @@ $$
     & = -(\omega_{\mu\rho} + \omega_{\rho\mu}) e^\rho \otimes e^\mu\\
     & \implies \omega_{\mu\nu} = -\omega_{\nu\mu}.
 \end{aligned}
+$$
+To calculate connection 1-form, we need another equation. Taking exterior derivative of $e^\mu$, we have
+$$
+\dd e^\mu = 
 $$

@@ -1,8 +1,12 @@
 'use strict';
 
 const pathd = require('path');
+const _ = p => pathd.join(__dirname, p);
 
-module.exports = main => {
+module.exports = (main, mod) => {
+
+    // mod.require('hkm');
+    let outter = mod.require(_('outter.js'));
 
     let escapeS = main.helper.escapeS;
     let escapeHTML = main.helper.escapeHTML;
@@ -10,21 +14,6 @@ module.exports = main => {
     let monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let ext = main.ext;
     let oldBlogTime = ext.oldBlogTime;
-    let domain = 'localhost';
-    if (ext.env === 'Generate'){
-        domain = main.config.domain;
-    }
-    else if (ext.env === 'Server'){
-        domain = main.config.localDomain;
-    }
-
-    function _forIn(obj, cb){
-        let ret = [];
-        for (let k in obj){
-            ret.push(cb(k, obj[k]));
-        }
-        return ret;
-    }
     
     function _if(cond, cb){
         return cond ? cb() : '';
@@ -52,164 +41,6 @@ module.exports = main => {
     }
     
     let config = main.config;
-    
-    let mathjax = () => `<script type="text/javascript" async src="${escapeS(config.mathjaxURL)}"></script>`;
-    let fontawesome = () => `<link rel="stylesheet" href="${escapeS(config.fontawsomeURL)}" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">`;
-    
-    let metaTags = [
-        '<meta charset="utf-8" />',
-        '<meta http-equiv="X-UA-Compatible" content="IE=edge" />',
-        '<meta name="viewport" content="width=device-width, initial-scale=1" />'
-    ].join('');
-    
-    let head = () => [
-        '<head>',
-            '<title>',
-                escapeHTML(config.title),
-            '</title>',
-            '<link href="/css/main.css" type="text/css" rel="stylesheet">',
-            // XXX: Using an empty script tag to fix the Chrome bug that all property transition from 
-            // user agent to the supplied value on page load. See https://github.com/LeaVerou/prefixfree/issues/99
-            '<script> (function(){})(); </script>',
-            metaTags,
-            fontawesome(),
-        '</head>'
-    ];
-
-    let header = (banner, active = '') => [
-        '<header class="main-header clearfix">',
-            _if(banner, () => [
-                '<div class="banner">',
-                    banner,
-                '</div>',
-            ]),
-            '<nav class="site-nav clearfix" id="main-nav">',
-                '<a href="javascript:;" id="btn-collapse" class="nav-btn">',
-                    '<i class="fas fa-bars"></i>',
-                '</a>',
-                '<ul class="nav-list right">',
-                    [
-                        {icon: '<i class="fas fa-search"></i>', path: 'javascript:;', id: 'btn-search'},
-                        {icon: '<i class="fas fa-rss"></i>', path: ext.rssPath || '/rss.xml', id: null},
-                    ].map(({icon, path, id}) => [
-                        '<li>',
-                            `<a href="${escapeS(path)}" class="nav-btn"${id ? ` id="${id}"` : ''}>`,
-                                '<span class="nav-icon-btn">',
-                                    icon,
-                                '</span>',
-                            '</a>',
-                        '</li>'
-                    ]),
-                '</ul>',
-                '<ul class="nav-list collapse" id="main-nav-list">',
-                    '<li class="collapse">',
-                        '<a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a>',
-                    '</li>',
-                    [
-                        {name: 'Home', icon: '<i class="fas fa-home"></i>', path: pathd.join(ext.blog, '/') },
-                        {name: 'Archive', icon: '<i class="fas fa-archive"></i>', path: pathd.join(ext.archive, '/')},
-                        {name: 'Categories', icon: '<i class="fas fa-folder-open"></i>', path: pathd.join(ext.category, '/')},
-                        {name: 'Tags', icon: '<i class="fas fa-tags"></i>', path: pathd.join(ext.tags, '/')},
-                        // {name: 'Programmes', icon: '<i class="fas fa-desktop"></i>', path: '/programmes/'},
-                        // {name: 'About', icon: '<i class="fas fa-address-card"></i>', path: '/about/'}
-                    ].map(({name, icon, path}) => [
-                        `<li${active === name ? ' class="active"' : ''}>`,
-                            `<a href="${escapeS(path)}" class="nav-btn collapse">`,
-                                '<span class="nav-icon">',
-                                    icon,
-                                '</span>',
-                                `<span class="nav-item-name">${escapeHTML(name)}</span>`,
-                            '</a>',
-                        '</li>'
-                    ]),
-                '</ul>',
-                '<div class="overlay"></div>',
-            '</nav>',
-        '</header>'
-    ];
-
-    let creativeCommon = [
-        // '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">',
-        //     '<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />',
-        // '</a>',
-        // '<br />',
-        'This work is licensed under a ',
-        '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">',
-            'Creative Commons Attribution 4.0 International License',
-        '</a>.'
-    ];
-
-    let footer = (path) => [
-        '<footer class="main-footer">',
-            '<div class="footer-row-2">',
-                '<div class="footer-right">',
-                    '<span>Links</span>',
-                    '<ul class="link-list">',
-                        _forIn(config.links, (name, url) => [
-                            '<li>',
-                                `<a href="${url}" target="_blank">${name}</a>`,
-                            '</li>'
-                        ]),
-                    '</ul>',
-                '</div>',
-                '<div class="divider"></div>',
-                '<div class="footer-left">',
-                    '<p>',
-                        creativeCommon,
-                    '</p>',
-                    '<p>',
-                        'Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.',
-                    '</p>',
-                    '<p>',
-                        '<i class="fab fa-html5"></i> ',
-                        `<a href="http://validator.w3.org/check?uri=http://${pathd.join(domain, path)}" target="_blank">`,
-                            'Validate HTML5',
-                        '</a>',
-                    '</p>',
-                '</div>',
-            '</div>',
-        '</footer>'
-    ];
-
-    let searchPanel = [
-        '<div id="search-panel">',
-            '<div class="search-inner empty" id="search-inner">',
-                '<div class="search-input-container">',
-                    '<a id="btn-clear-search"><i class="fas fa-times"></i></a>',
-                    '<input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." />',
-                '</div>',
-                '<div class="search-result-container">',
-                    '<ul id="search-result">',
-                    '</ul>',
-                    '<div id="search-loading" class="show"></div>',
-                    '<div id="search-no-result-hint">',
-                        '<p class="icon"><i class="fas fa-search"></i></p>',
-                        '<p class="text">No result found.</p>',
-                    '</div>',
-                '</div>',
-            '</div>',
-        '</div>',
-    ];
-    
-    let outter = (banner, active, path, content) => [
-        '<!DOCTYPE html>',
-        '<html>',
-            head(),
-            '<body>',
-                header(banner, active),
-                '<div class="outter-container">',
-                    '<div class="main-container">',
-                        content,
-                    '</div>',
-                '</div>',
-                footer(path),
-                searchPanel,
-                '<a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a>',
-                '<script src="/js/main.js"></script>',
-                mathjax(),
-            '</body>',
-        '</html>'
-    ];
     
     function articleCategoryList(pathBase, categoryPath){
         let list = [];
@@ -293,14 +124,15 @@ module.exports = main => {
         '</article>',
     ];
     
-    let post = ({article, arg, path}) => outter([
+    let post = ({arg}) => outter([
         '<hgroup>',
             "<h1>Welcome to</h1>",
             `<h1>Hadroncfy's Notebook</h1>`,
         '</hgroup>'
-    ], '', path, postLike(article,
-        escapeHTML(article.title),
-        article.content,
+    ], '', main.rendering.article.title,
+    postLike(main.rendering.article,
+        escapeHTML(main.rendering.article.title),
+        main.rendering.article.content,
         arg
     ));
 
@@ -321,7 +153,7 @@ module.exports = main => {
     let page = ({pages, path, arg}) => outter([
         "<h1>Welcome to</h1>",
         `<h1>Hadroncfy's Notebook</h1>`,
-    ], 'Home', path, [
+    ], 'Home', '', [
         '<ul class="main-post-list">',
         checkOldPost(pages.getPages(), (page, firstOldPost) => [
             '<li>',
@@ -364,9 +196,9 @@ module.exports = main => {
     }
     
     let tag = ({pages, arg, tag, path}) => outter([
-        `<h1>Tag: </h1>`,
+        `<h1 class="icon"><i class="fas fa-tags"></i>Tag: </h1>`,
         `<h2>${escapeHTML(tag)}</h2>`
-    ], '', path, postDateList(pages, arg));
+    ], '', `Tag: ${tag}`, postDateList(pages, arg));
 
     let smallPost = (page, args) => [
         '<article class="article-main">',
@@ -489,82 +321,53 @@ module.exports = main => {
         '</nav>'
     ]);
     
-    let category = ({pages, node, pathBase, path, arg}) => outter([
-        '<h1 class="line1 icon"><i class="fas fa-folder-open"></i>Categories</h1>',
-    ], 'Categories', path, [
-        '<div class="category-outter-container">',
-            '<header class="category-path">',
-                `<a href="${pathd.join(escapeS(pathBase), '/')}">Category</a>`,
-                node.getPath().map(n => [
-                    '<span class="category-divider">',
-                        '<i class="fas fa-chevron-right"></i>',
-                    '</span>',
-                    `<a href="${escapeS(pathBase)}${pathd.join(n.getPath().map(p => regulateName(p.name)).join('/'), '/')}">${escapeHTML(n.name)}</a>`,
-                ]),
-            '</header>',
-            () => {
-                let subcat = node.getSubcategories();
-                let p = pathd.join(pathBase, node.getPath().map(n => regulateName(n.name)).join('/'), '/');
-                if (subcat.length > 0){
-                    return [
-                        '<h3 class="post-list-date">Subcategories</h3>',
-                        '<ul class="subcategory-container">',
-                            subcat.map(c => [
-                                `<li><a class="category-btn btn-category" href="${pathd.join(p, regulateName(c), '/')}">`,
-                                    '<span class="category-file-icon"><i class="fas fa-folder-open"></i></span>',
-                                    escapeHTML(c),
-                                `</a></li>`
-                            ]),
-                        '</ul>'
-                    ];
-                }
-                else 
-                    return '';
-            },
-            '<div class="category-post-list">',
-                postDateList(pages, arg),
+    let category = ({pages, node, pathBase, path, arg}) => () => {
+        let cpath = node.getPath();
+        return outter([
+            '<h1 class="line1 icon"><i class="fas fa-folder-open"></i>Categories</h1>',
+        ], 'Categories', `Category${cpath.length > 0 ? ': ' + cpath.map(n => n.name).join('/') : ''}`, [
+            '<div class="category-outter-container">',
+                '<header class="category-path">',
+                    `<a href="${pathd.join(escapeS(pathBase), '/')}">Category</a>`,
+                    cpath.map(n => [
+                        '<span class="category-divider">',
+                            '<i class="fas fa-chevron-right"></i>',
+                        '</span>',
+                        `<a href="${pathd.join(escapeS(pathBase), n.getPath().map(p => regulateName(p.name)).join('/'), '/')}">${escapeHTML(n.name)}</a>`,
+                    ]),
+                '</header>',
+                () => {
+                    let subcat = node.getSubcategories();
+                    let p = pathd.join(pathBase, node.getPath().map(n => regulateName(n.name)).join('/'), '/');
+                    if (subcat.length > 0){
+                        return [
+                            '<h3 class="post-list-date">Subcategories</h3>',
+                            '<ul class="subcategory-container">',
+                                subcat.map(c => [
+                                    `<li><a class="category-btn btn-category" href="${pathd.join(p, regulateName(c), '/')}">`,
+                                        '<span class="category-file-icon"><i class="fas fa-folder-open"></i></span>',
+                                        escapeHTML(c),
+                                    `</a></li>`
+                                ]),
+                            '</ul>'
+                        ];
+                    }
+                    else 
+                        return '';
+                },
+                '<div class="category-post-list">',
+                    postDateList(pages, arg),
+                '</div>',
             '</div>',
-        '</div>',
-    ]);
+        ]);
+    };
 
-    let archive = ({pages, path, arg}) => outter([
+    let archive = ({pages, arg}) => outter([
         '<h1 class="line1 icon"><i class="fas fa-archive"></i>Archive</h1>'
-    ], 'Archive', path, [
+    ], 'Archive', 'Archive', [
         '<div class="archive-container">',
             postDateList(pages, arg),
         '</div>'
-    ]);
-
-    function totalTags(tags){
-        let ret = 0;
-        for (let name in tags){
-            ret += tags[name].size();
-        }
-        return ret;
-    }
-
-    function getTagStyle(len, total){
-        let from = 1, to = 4;
-        let fs = from + (to - from) * len / total;
-        return `font-size: ${fs}em;`;
-    }
-
-    let tagCloud = ({tags, path}) => outter([
-        '<h1 class="line1 icon"><i class="fas fa-tags"></i>Tag Cloud</h1>'
-    ], 'Tags', path, [
-        '<ul class="tag-cloud">',
-            () => {
-                let total = totalTags(tags);
-                return _forIn(tags, (k, v) => [
-                    '<li>',
-                        `<a href="${pathd.join(escapeS(ext.tags), escapeS(regulateName(k)), '/')}" style="${getTagStyle(v.size(), total)}">`,
-                            '<i class="fas fa-tag"></i>',
-                            escapeHTML(k),
-                        '</a>',
-                    '</li>'
-                ])
-            },
-        '</ul>'
     ]);
 
     main.layouts.post = post;
@@ -572,5 +375,5 @@ module.exports = main => {
     main.layouts.tag = tag;
     main.layouts.category = category;
     main.layouts.archive = archive;
-    main.layouts.tagCloud = tagCloud;
+    main.layouts.tagCloud = mod.require(_('tagcloud.js'));
 };

@@ -10,7 +10,7 @@ module.exports = params => async (app) => {
         app.ext.oldBlogTime = d;
     }
     app.on('init-pages', async () => {
-        let scss = (await app.helper.find(_('css'))).map(f => pathd.join(__dirname, 'css', f.toString()));
+        let scss = (await app.helper.find(_('css'))).map(f => pathd.join(_('css'), f.toString()));
         app.scss.register('/css/main.css', _('css/main.scss'), scss);
         app.file.register('/js/main.js', _('dist/main.js'));
     

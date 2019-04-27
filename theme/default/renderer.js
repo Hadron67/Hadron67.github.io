@@ -40,8 +40,8 @@ module.exports = app => {
                 this.text += `<pre><code lang="${escapeS(node.lang)}">${escapeHTML(node.val)}</code></pre>`;
         }
         visitImage(node) {
-            let base = app.config.imagePath || '/';
-            let src = /^https?:\/\//.test(node.src) ? escapeS(node.src) : pathd.join(base, escapeS(node.src));
+            this.addImage(node);
+            let src = app.helper.completeImageURL(node.src);
             let inline = false, float = '', styles = [];
             for (let a of node.attrs){
                 switch (a){

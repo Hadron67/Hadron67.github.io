@@ -24,5 +24,8 @@
         border-radius: 5px;
         @include shadow-base();
         // box-shadow: 2 2 4px #ccc;
+        > i {
+            padding-right: 4px;
+        }
     }
 }

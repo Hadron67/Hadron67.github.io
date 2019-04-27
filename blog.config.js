@@ -15,11 +15,16 @@ module.exports = async (app) => ({
     title: "Hadroncfy's Notebook",
     outDir: _('dist/'),
     localDomain: await read(_('private/ip')),
-    domain: 'hadroncfy.com',
+    domain: 'https://hadroncfy.com',
     author: 'hadroncfy',
+    githubRepo: 'https://github.com/Hadron67/Hadron67.github.io/tree/source',
 
     mathjaxURL: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML',
-    fontawsomeURL: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+
+    fontawesome: {
+        url: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+        integrity: 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf'
+    },
 
     links: {
         'zzy(BG6GCZ)': 'https://zzy.blog.ustc.edu.cn/',
@@ -52,7 +57,7 @@ module.exports = async (app) => ({
         app.simpleMarkdownFilter(),
         app.server({
             port: 8080,
-            addr: 'localhost'
+            addr: '0.0.0.0'
         }),
         app.gitDeployer({
             url: 'https://github.com/Hadron67/Hadron67.github.io.git',
