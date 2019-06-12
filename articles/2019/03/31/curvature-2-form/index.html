@@ -1,7 +1,7 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><title>(In progress) Curvature 2-forms and tetrad method | Hadroncfy's Notebook</title><link href="/css/main.css" type="text/css" rel="stylesheet"><script> (function(){})(); </script><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta property="og:site_name" content="Hadroncfy's Notebook" /><meta property="og:url" content="https://hadroncfy.com/articles/2019/03/31/curvature-2-form/index.html" /><meta property="og:title" content="(In progress) Curvature 2-forms and tetrad method" /><meta property="og:type" content="article" /><meta property="og:description" content="\def\tensor#1{{\bf #1}}\n\def\dd{\mathrm{d}}\n In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifol" /><meta name="description" content="\def\tensor#1{{\bf #1}}\n\def\dd{\mathrm{d}}\n In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifol" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></head><body><header class="main-header clearfix"><div class="banner"><hgroup><h1>Welcome to</h1><h1>Hadroncfy's Notebook</h1></hgroup></div><nav class="site-nav clearfix" id="main-nav"><a href="javascript:;" id="btn-collapse" class="nav-btn"><i class="fas fa-bars"></i></a><ul class="nav-list right"><li><a href="javascript:;" class="nav-btn" id="btn-search"><span class="nav-icon-btn"><i class="fas fa-search"></i></span></a></li><li><a href="https://github.com/Hadron67/Hadron67.github.io/tree/source" class="nav-btn"><span class="nav-icon-btn"><i class="fab fa-github"></i></span></a></li><li><a href="/rss.xml" class="nav-btn"><span class="nav-icon-btn"><i class="fas fa-rss"></i></span></a></li></ul><ul class="nav-list collapse" id="main-nav-list"><li class="collapse"><a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a></li><li><a href="/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-item-name">Home</span></a></li><li><a href="/archive/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-archive"></i></span><span class="nav-item-name">Archive</span></a></li><li><a href="/category/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-item-name">Categories</span></a></li><li><a href="/tags/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-tags"></i></span><span class="nav-item-name">Tags</span></a></li></ul><div class="overlay"></div></nav></header><div class="outter-container"><div class="main-container"><article class="article-main"><header class="article-title-container"><h1 class="article-title">(In progress) Curvature 2-forms and tetrad method</h1><div class="article-info-container"><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-calendar-alt"></i></span><time class="post-date" title="Created on" datetime="2019-03-31T08:28:12.000Z">2019-3-31</time></span><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-folder-open"></i></span><a href="/category/note/">Note</a></span></div></header><div class="article-inner-container"><div class="mathjax-wrapper hidden"><script type="math/tex">%<![CDATA[
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>Curvature 2-forms and tetrad method | Hadroncfy's Notebook</title><link href="/css/main.css" type="text/css" rel="stylesheet"><script> (function(){})(); </script><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta property="og:site_name" content="Hadroncfy's Notebook" /><meta property="og:url" content="https://hadroncfy.com/articles/2019/03/31/curvature-2-form/index.html" /><meta property="og:title" content="Curvature 2-forms and tetrad method" /><meta property="og:type" content="article" /><meta property="og:description" content="\def\tensor#1{{\bf #1}}\n\def\dd{\mathrm{d}}\n In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifol" /><meta name="description" content="\def\tensor#1{{\bf #1}}\n\def\dd{\mathrm{d}}\n In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifol" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></head><body><header class="main-header clearfix"><div class="banner"><hgroup><h1>Welcome to</h1><h1>Hadroncfy's Notebook</h1></hgroup></div><nav class="site-nav clearfix" id="main-nav"><a href="javascript:;" id="btn-collapse" class="nav-btn"><i class="fas fa-bars"></i></a><ul class="nav-list right"><li><a href="javascript:;" class="nav-btn" id="btn-search"><span class="nav-icon-btn"><i class="fas fa-search"></i></span></a></li><li><a href="https://github.com/Hadron67/Hadron67.github.io/tree/source" class="nav-btn"><span class="nav-icon-btn"><i class="fab fa-github"></i></span></a></li><li><a href="/rss.xml" class="nav-btn"><span class="nav-icon-btn"><i class="fas fa-rss"></i></span></a></li></ul><ul class="nav-list collapse" id="main-nav-list"><li class="collapse"><a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a></li><li><a href="/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-item-name">Home</span></a></li><li><a href="/archive/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-archive"></i></span><span class="nav-item-name">Archive</span></a></li><li><a href="/category/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-item-name">Categories</span></a></li><li><a href="/tags/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-tags"></i></span><span class="nav-item-name">Tags</span></a></li></ul><div class="overlay"></div></nav></header><div class="outter-container"><div class="main-container"><article class="article-main"><header class="article-title-container"><h1 class="article-title">Curvature 2-forms and tetrad method</h1><div class="article-info-container"><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-calendar-alt"></i></span><time class="post-date" title="Created on" datetime="2019-03-31T08:28:12.000Z">2019-3-31</time></span><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-folder-open"></i></span><a href="/category/note/">Note</a></span></div></header><div class="article-inner-container"><div class="mathjax-wrapper hidden"><script type="math/tex">%<![CDATA[
 \def\tensor#1{{\bf #1}}
 \def\dd{\mathrm{d}}
-%]]></script></div><p>In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifold, solving the Enstein's equation one always needs to calculate the curvature tensor. But the component expression of Riemann tensor is too complicated, making it painful to calculate it by hand, and less powerful when dealing with various problems. This is where curvature 2-form comes out.</p><!--more--><div class="head2-wrapper" id="definitions"><h2>Definitions</h2></div><p>Among textbooks and lectures, there're two different yet equivalent definitions of Riemann curvature tensor:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+%]]></script></div><p>In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifold, solving the Enstein's equation one always needs to calculate the curvature tensor. But the component expression of Riemann tensor is too complicated, making it painful to calculate it by hand, and less powerful when dealing with various problems. Instead,  using curvature 2-form would somehow be better.</p><!--more--><div class="head2-wrapper" id="definitions"><h2>Definitions</h2></div><p>Among textbooks and lectures, there're two different yet equivalent definitions of Riemann curvature tensor:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
 \begin{aligned}
 2\nabla_{[a}\nabla_{b]}\omega_c & = R_{abc}{}^d \omega_d; \\
 2\nabla_{[a}\nabla_{b]}v^c & = R^c{}_{dab} v^d.
@@ -9,17 +9,49 @@
 %]]></script></div><p>From which we can write their component expressions:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
 \begin{aligned}
     R_{\mu\nu\lambda}{}^\rho & = -2\partial_{[\mu}\Gamma^\rho_{\nu]\lambda} + 2\Gamma^\sigma_{[\mu|\lambda}\Gamma^\rho_{\nu]\sigma};\\
-    R^\rho{}_{\lambda\mu\nu} & = 2\partial_{[\mu}\Gamma^\rho_{\nu]\lambda} + \Gamma^\rho_{[\mu|\sigma}\Gamma^\sigma_{\nu]\lambda}.
+    R^\rho{}_{\lambda\mu\nu} & = 2\partial_{[\mu}\Gamma^\rho_{\nu]\lambda} + 2\Gamma^\rho_{[\mu|\sigma|}\Gamma^\sigma_{\nu]\lambda}.
 \end{aligned}
-%]]></script></div><p>Since the second is more common, we will use it in the rest of this article.</p><h3>Connection 1-form</h3><p>Instead of work in the coordinate tetrad, as one usually did in general relativity, we choose an othonormal tetrad <script type="math/tex">%<![CDATA[
+%]]></script></div><p>Since the second is more common, we will use it in the rest of this article.</p><h3>Connection 1-form</h3><p>Instead of work in the coordinate tetrad, as one usually did in general relativity, we choose an arbitary tetrad <script type="math/tex">%<![CDATA[
 \{e_\mu\}
 %]]></script>, in which case the connection is <script type="math/tex">%<![CDATA[
 \gamma^\mu_{\alpha\beta}
 %]]></script>, satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
-\nabla_a e_\mu = \gamma^\nu_{a\mu} e_\nu = (\omega^\nu{}_\mu)_a e_\nu,
+\nabla_\mu e_\nu = \gamma^\alpha_{\mu\nu}e_\alpha, \qquad
+\nabla_\mu \sigma^\nu = -\gamma^\nu_{\mu\alpha}\sigma^\alpha.
+%]]></script></div><p>Where <script type="math/tex">%<![CDATA[
+\{\sigma^\mu\}
+%]]></script> is the dual basis. Define <strong>connection 1-form</strong> by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\omega^\nu{}_\mu \equiv \gamma^\nu_{\rho\mu} \sigma^\rho,
+%]]></script></div><p>which can be regarded as an <script type="math/tex">%<![CDATA[
+N \times N
+%]]></script> matrix with 1-form entries. If the connection is torsion-free, it then satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+(\omega^\mu{}_\nu \wedge \sigma^\nu)_{ab} = 2\gamma^\mu_{\rho\nu} (\sigma^\rho)_{[a} (\sigma^\nu)_{b]} = -2\nabla_{[a} (\sigma^\mu)_{b]}
+= -(\dd \sigma^\mu)_{ab}.
+%]]></script></div><p>This is the <strong>Cartan's first structural equation</strong>.</p><blockquote><p>The last step of above isn't true when the connection has a non-vanishing torsion, and will contribute an additional torsion term. We can derive it in the following way:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+\dd\sigma^\mu(e_\nu, e_\rho) &= e_\nu(\sigma^\mu(e_\rho)) - e_\rho(\sigma^\mu(e_\nu)) - \sigma^\mu([e_\nu, e_\rho])\\
+& = -\sigma^\mu(\nabla_{e_\nu}e_\rho - \nabla_{e_\rho}e_\nu - T(e_\nu, e_\rho))\\
+& = -(\gamma^\mu_{\nu\rho} - \gamma^\mu_{\rho\nu}) - T^\mu_{\nu\rho},
+\end{aligned}
+%]]></script></div><p>where we have used the definition of torsion tensor</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ T(X, Y) = \nabla_XY - \nabla_YX - [X, Y]. 
+%]]></script></div><p>So <script type="math/tex">%<![CDATA[
+\dd\sigma^\mu
+%]]></script> can be written as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\dd\sigma^\mu = -\omega^\mu{}_\nu\wedge\sigma^\nu + \Theta^\mu,
+%]]></script></div><p>where</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \Theta^\mu = \frac12 T^\mu_{\nu\rho}\sigma^\nu\wedge\sigma^\rho 
+%]]></script></div><p>is the torsion 2-from.</p></blockquote><p>Written in matrix form, the above result is simply</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd\sigma = -\omega\wedge\sigma + \Theta, 
 %]]></script></div><p>where <script type="math/tex">%<![CDATA[
-\omega^\nu{}_\mu \equiv \gamma^\nu_{\rho\mu} e^\rho
-%]]></script> is <strong>connection 1-form</strong>. If <script type="math/tex">%<![CDATA[
+\sigma
+%]]></script> and <script type="math/tex">%<![CDATA[
+\Theta
+%]]></script> are column vectors whose entries are <script type="math/tex">%<![CDATA[
+\{\sigma^\mu\}
+%]]></script> and <script type="math/tex">%<![CDATA[
+\{\Theta^\mu\}
+%]]></script>.</p><p>It might be suprising at this point, since the exterier derivative has no dependency on the connection. In fact, the above result doesn't fully determine the connection 1-form, it's just a constrain on it, more equations are required if we wish to calculate the connection.</p><p>Now consider the Levi-Civita connection. If <script type="math/tex">%<![CDATA[
 \{e_\mu\}
 %]]></script> is <em>rigid tetrad</em>, i.e., the metric's components <script type="math/tex">%<![CDATA[
 g_{\mu\nu} \equiv g(e_\mu, e_\nu)
@@ -27,13 +59,247 @@ g_{\mu\nu} \equiv g(e_\mu, e_\nu)
 \omega^\nu{}_\mu
 %]]></script> satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
 \begin{aligned}
-    0 = \nabla_a g & = \nabla_a (g_{\mu\nu} e^\mu \otimes e^\nu)\\
-    & = -g_{\mu\nu} \omega^\mu{}_\rho e^\rho \otimes e^\nu - g_{\mu\nu} \omega^\nu{}_\rho e^\mu \otimes e^\rho\\
-    & = -(\omega_{\mu\rho} + \omega_{\rho\mu}) e^\rho \otimes e^\mu\\
+    0 = \nabla_a g & = \nabla_a (g_{\mu\nu} \sigma^\mu \otimes \sigma^\nu)\\
+    & = -g_{\mu\nu} \omega^\mu{}_\rho \sigma^\rho \otimes \sigma^\nu - g_{\mu\nu} \omega^\nu{}_\rho \sigma^\mu \otimes \sigma^\rho\\
+    & = -(\omega_{\mu\rho} + \omega_{\rho\mu}) \sigma^\rho \otimes \sigma^\mu\\
     & \implies \omega_{\mu\nu} = -\omega_{\nu\mu}.
 \end{aligned}
-%]]></script></div><p>To calculate connection 1-form, we need another equation. Taking exterior derivative of <script type="math/tex">%<![CDATA[
-e^\mu
-%]]></script>, we have</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
-\dd e^\mu = 
-%]]></script></div></div><footer class="post-footer"><a class="btn-tag" href="/tags/general-relativity/" title="Tag: General relativity"><i class="fas fa-tag"></i>General relativity</a><a class="btn-tag" href="/tags/differential-geometry/" title="Tag: Differential geometry"><i class="fas fa-tag"></i>Differential geometry</a></footer></article></div></div><footer class="main-footer"><div class="footer-row-2"><div class="footer-right"><span>Links</span><ul class="link-list"><li><a href="https://zzy.blog.ustc.edu.cn/" target="_blank">zzy(BG6GCZ)</a></li><li><a href="https://wxyhly.github.io/" target="_blank">wxy</a></li><li><a href="https://www.futantan.com/" target="_blank">futantan</a></li></ul></div><div class="divider"></div><div class="footer-left"><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p><p>Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.</p><p><i class="fab fa-html5"></i> <a href="http://validator.w3.org/check?uri=https://hadroncfy.com/articles/2019/03/31/curvature-2-form/index.html" target="_blank">Validate HTML5</a></p></div></div></footer><div id="search-panel"><div class="search-inner empty" id="search-inner"><div class="search-input-container"><a id="btn-clear-search"><i class="fas fa-times"></i></a><input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." /></div><div class="search-result-container"><ul id="search-result"></ul><div id="search-loading" class="show"></div><div id="search-no-result-hint"><p class="icon"><i class="fas fa-search"></i></p><p class="text">No result found.</p></div></div></div></div><a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a><script src="/js/main.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script></body></html>
+%]]></script></div><p>This property, together with the previous one, completely determines the connection 1-form. So if we choose the tetrad so that <script type="math/tex">%<![CDATA[
+g_{\mu\nu}
+%]]></script> is diagonal, then we have <script type="math/tex">%<![CDATA[
+g_{\bar\mu\bar\mu}\omega^\mu{}_\nu = -g_{\bar\nu\bar\nu}\omega^\nu{}_\mu
+%]]></script>. In the Riemannian case (not pseudo-Riemannian), for instance, this means <script type="math/tex">%<![CDATA[
+\omega
+%]]></script> is antisymmetric. </p><p>As an exmple, let us calculate the connection 1-form of <script type="math/tex">%<![CDATA[
+S^2
+%]]></script>:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd l^2 = R^2(\dd\theta^2 + \sin^2\theta\dd\varphi^2). 
+%]]></script></div><p>We first choose an othonormal basis</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\sigma = \begin{pmatrix}
+    R\dd\theta \\ R\sin\theta\dd\varphi
+\end{pmatrix}.
+%]]></script></div><p>So we have</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\dd\sigma = \begin{pmatrix}
+    0 \\ R \cos\theta \dd\theta \wedge \dd\varphi
+\end{pmatrix} = -\omega \wedge \begin{pmatrix}
+    R\dd\theta \\ R\sin\theta\dd\varphi
+\end{pmatrix},
+%]]></script></div><p>since <script type="math/tex">%<![CDATA[
+\omega
+%]]></script> is antisymmetric in this case, let </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\omega = \begin{pmatrix}
+    0 & A \\ -A & 0
+\end{pmatrix},
+%]]></script></div><p>substitute into above, we have</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{cases}
+    -R\sin\theta A\wedge\dd\varphi = 0\\
+    R A \wedge \dd\theta = R \cos\theta \dd\theta \wedge \dd\varphi
+\end{cases}
+%]]></script></div><p>So that <script type="math/tex">%<![CDATA[
+A = -\cos\theta\dd\varphi
+%]]></script>.</p><h3>Curvature 2-form</h3><p>Curvature 2-form is defined by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \Omega^\mu{}_\nu = \dd\omega^\mu{}_\nu + \omega^\mu{}_\rho \wedge \omega^\rho{}_\nu, 
+%]]></script></div><p>which can also be regarded as an <script type="math/tex">%<![CDATA[
+N\times N
+%]]></script> matrix. This relation is the <strong>Cartan's second structural equation</strong>. Direct calculation shows its relation with the Riemann curvature tensor:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \Omega^\mu{}_\nu & = \partial_\alpha \gamma^\mu_{\beta\nu} \sigma^\alpha \wedge \sigma^\beta + \gamma^\mu_{\alpha\rho}\gamma^\rho_{\beta\nu}\sigma^\alpha \wedge \sigma^\beta\\
+    & = \frac12\left(\partial_{[\alpha}\gamma^\mu_{\beta]\nu}
+    + \gamma^\mu_{[\alpha|\rho|}\gamma^\rho_{\beta]\nu}\right)\sigma^\alpha\wedge\sigma^\beta\\
+    & = \frac12 \widehat R^\mu{}_{\nu\alpha\beta}\sigma^\alpha\wedge\sigma^\beta,
+\end{aligned}
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+\widehat R^\mu{}_{\nu\alpha\beta}
+%]]></script> is the components of the Riemann curvature tensor in the tetrad <script type="math/tex">%<![CDATA[
+\{e_\mu\}
+%]]></script>. It is easy to verify that <script type="math/tex">%<![CDATA[
+\Omega_{\mu\nu} \equiv g_{\mu\rho}\Omega^\rho{}_\nu
+%]]></script> is antisymmetric in rigid tetrad:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \Omega_{\mu\nu} & = g_{\mu\rho}\Omega^\rho{}_\nu = \dd\omega_{\mu\nu} + \omega_{\mu\rho} \wedge \omega^\rho{}_\nu,\\
+    \Omega_{\nu\mu} & = -\dd\omega_{\mu\nu} + \omega_{\nu\rho} \wedge \omega^\rho{}_\mu\\
+    & = -\dd\omega_{\mu\nu} - \omega_{\mu\rho} \wedge \omega^\rho{}_\nu\\
+    & = -\Omega_{\mu\nu}.
+\end{aligned}
+%]]></script></div><p>Matrix form of the curvature 2-form is simply</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \Omega = \dd\omega + \omega \wedge \omega. 
+%]]></script></div><blockquote><p>This expression is very similiar to the field strength of Yang-Mills gauge theory</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ F = \dd A + A \wedge A. 
+%]]></script></div><p>In fact, the gauge field <script type="math/tex">%<![CDATA[
+A
+%]]></script> is also a kind of connection, it's the connection on the <strong>principal bundle</strong>, and <script type="math/tex">%<![CDATA[
+F
+%]]></script> can also be regarded as curvature.</p></blockquote><p>The Ricci tensor can also be calculated from the curvature 2-form. Since</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\Omega^\mu{}_\nu(e_\mu) = \frac12 R^\mu{}_{\nu\alpha\beta}(\delta^\alpha_\mu\sigma^\beta - \delta^\beta_\mu\sigma^\alpha)
+= R_{\nu\alpha}\sigma^\alpha,
+%]]></script></div><p>thus</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \bar R = \Omega^\mu{}_\nu(e_\mu) \otimes \sigma^\nu = R_{\mu\nu}\sigma^\mu\otimes\sigma^\nu, 
+%]]></script></div><p>(we add a bar to distinguish it with the scalar curvature). In matrix form</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \bar R = i_e \Omega \otimes \sigma, 
+%]]></script></div><p>here <script type="math/tex">%<![CDATA[
+e
+%]]></script> should be a row vector, <script type="math/tex">%<![CDATA[
+i_e\Omega
+%]]></script> means <script type="math/tex">%<![CDATA[
+e
+%]]></script> also contracts with <script type="math/tex">%<![CDATA[
+\Omega
+%]]></script> when doing matrix multiplication.</p><p>Again, as an example, we calculate the curvature 2-form and Ricci tensor of <script type="math/tex">%<![CDATA[
+S^2
+%]]></script>.</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    e & = \left(\frac1R \partial_\theta \qquad \frac{1}{R\sin\theta}\partial_\varphi\right)\\
+    \Omega & = \dd\omega + \omega \wedge \omega = \begin{pmatrix}
+        0 & \sin\theta \dd\theta \wedge \dd\varphi\\
+        -\sin\theta \dd\theta \wedge \dd\varphi & 0
+    \end{pmatrix}\\
+    \bar R & = \left( \frac1R\dd\theta \qquad \frac{\sin\theta}{R}\dd\varphi \right)\begin{pmatrix}
+        R\dd\theta \\ R\sin\theta\dd\varphi
+    \end{pmatrix}
+    = \dd\theta^2 + \sin^2\theta\dd\varphi^2.
+\end{aligned}
+%]]></script></div><p>Notice that <script type="math/tex">%<![CDATA[
+g = \bar RR
+%]]></script>.</p><div class="head2-wrapper" id="spherical-decomposition"><h2>Spherical decomposition</h2></div><p>When calculating curvature tensors in spherical coordinate, sometimes we actually don't need to compute all the components of the Riemann curvature tensor. For example, when solving Einstein's equation in 4 dimensional spacetime, we see that the Ricci tensor components <script type="math/tex">%<![CDATA[
+R_{\theta\theta}
+%]]></script> and <script type="math/tex">%<![CDATA[
+R_{\varphi\varphi}
+%]]></script> gives the same equation. This indicates the spherical part of the coordinate can be treated as a whole. The tetrad method above gives a (maybe) useful trick to these problems.</p><p>We'll explain this method by an example. Consider <script type="math/tex">%<![CDATA[
+(n + 1)
+%]]></script>-dimensional spherical symmetric static spacetime, metric in spherical coordinate has the form</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd s^2 = -e^{2A(r)}\dd t^2 + e^{2B(r)}\dd r^2 + r^2\dd\Omega^2, 
+%]]></script></div><p>where</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd\Omega^2 = \dd\theta^2 + \sin^2\theta\dd\varphi^2 
+%]]></script></div><p>is the spherical part. In higher dimensions only the form of <script type="math/tex">%<![CDATA[
+\dd\Omega^2
+%]]></script> will be different. We may choose a <strong>rigid</strong> tetrad on the sphere, so that the spherical part of the metric can be written as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd\Omega^2 = g_{ij}H^i H^j \equiv H' H, 
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+H
+%]]></script> is a column vector with 1-form entries <script type="math/tex">%<![CDATA[
+H^i
+%]]></script>, they can be regarded as the dual basis of the sphere, and <script type="math/tex">%<![CDATA[
+g_{ij}
+%]]></script> is the metric of unit sphere <script type="math/tex">%<![CDATA[
+S^{n - 1}
+%]]></script> in this tetrad. In the case above we have </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+H = \begin{pmatrix}
+    \dd\theta \\ \sin\theta\dd\varphi
+\end{pmatrix},
+%]]></script></div><p>and <script type="math/tex">%<![CDATA[
+H'
+%]]></script> is a row vector whose components are given by </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ H'_i = g_{ij}H^j. 
+%]]></script></div><p>Let <script type="math/tex">%<![CDATA[
+h_i
+%]]></script> be the dual of <script type="math/tex">%<![CDATA[
+H^i
+%]]></script>, i.e. <script type="math/tex">%<![CDATA[
+H^i(h_j) = \delta^i_j
+%]]></script>, we can write the othonormal basis as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+e = \left(e^{-A}\partial_t \quad e^{-B}\partial_r \quad \frac1r h\right), \qquad
+\sigma = \begin{pmatrix}
+    e^A \dd t \\ e^B \dd r \\ rH
+\end{pmatrix}.
+%]]></script></div><p>The Cantan's first structural equation reads</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\dd\sigma = \begin{pmatrix}
+    e^A A'\dd r\wedge\dd t\\
+    0\\
+    \dd r \wedge H + r\dd H
+\end{pmatrix} = -\omega \wedge \begin{pmatrix}
+    e^A \dd t \\ e^B \dd r \\ rH
+\end{pmatrix},
+%]]></script></div><p>which solves to</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\omega = \begin{pmatrix}
+    0 & e^{A - B}A'\dd t & 0\\
+    e^{A - B}A'\dd t & 0 & -e^{-B}H'\\
+    0 & e^{-B}H & M
+\end{pmatrix},
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+M
+%]]></script> satisfies </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd H = -M \wedge H, 
+%]]></script></div><p>that is, it's the connection of <script type="math/tex">%<![CDATA[
+S^{n - 1}
+%]]></script>. A similiar relation holds for <script type="math/tex">%<![CDATA[
+H'
+%]]></script></p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd H'_i = -g_{ik} M^k{}_j \wedge H^j = g_{jk}M^k{}_i \wedge H^j = -H'_k \wedge M^k{}_i, 
+%]]></script></div><p>i.e.</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd H' = -H'\wedge M. 
+%]]></script></div><p>The two terms of <script type="math/tex">%<![CDATA[
+\Omega
+%]]></script> are</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \dd\omega & = \begin{pmatrix}
+        0 & F \dd r\wedge \dd t & 0 \\
+        F \dd r\wedge \dd t & 0 & e^{-B}B'\dd r\wedge H' - e^{-B}\dd H'\\
+        0 & -e^{-B}B'\dd r\wedge H + e^{-B}\dd H & \dd M
+    \end{pmatrix}\\
+    \omega\wedge\omega & = \begin{pmatrix}
+        0 & 0 & -G\dd t\wedge H'\\
+        0 & 0 & -e^{-B}H'\wedge M\\
+        -G\dd t\wedge H & e^{-B}M\wedge H & -e^{-2B}H\wedge H' + M\wedge M
+    \end{pmatrix},
+\end{aligned}
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+F = (A'' + A'^2 - A'B')e^{A - B}
+%]]></script>, <script type="math/tex">%<![CDATA[
+G = A'e^{A - 2B}
+%]]></script>.</p><p>Summing these terms gives the curvature 3-form. But we still have an undetermined matrix <script type="math/tex">%<![CDATA[
+M
+%]]></script>. To find an expression for <script type="math/tex">%<![CDATA[
+M
+%]]></script>, consider the metric of Euclidean space <script type="math/tex">%<![CDATA[
+R^n
+%]]></script> in spherical coordinate</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd l^2 = \dd r^2 + r^2 H'H. 
+%]]></script></div><p>A similiar calculation gives the curvature 2-form</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\Omega_0 = \begin{pmatrix}
+    0 & 0 \\
+    0 & \dd M + M \wedge M - H \wedge H'
+\end{pmatrix}.
+%]]></script></div><p>which should vanish since it's euclidean space, so we get</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dd M + M \wedge M = H \wedge H'. 
+%]]></script></div><p>Now the curvature 2-form reads</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\Omega = \begin{pmatrix}
+    0 & F\dd r\wedge\dd t & -G\dd t\wedge H'\\
+    F\dd r\wedge \dd t & 0 & e^{-B}B'\dd r\wedge H'\\
+    -G\dd t\wedge H & -e^{-B}B'\dd r\wedge H & (1 - e^{-2B})H\wedge H'
+\end{pmatrix}.
+%]]></script></div><p>To calculate the Ricci tensor, note that</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    i_hH & = H^i(h_i) = n - 1,\\
+    [i_h(H\wedge H')]_j & = H^i(h_i)H'_j - H^iH'_j(h_i)\\
+    & = (n - 1)H'_j - g_{ij}H^i\\
+    & = (n - 2)H'_j.
+\end{aligned}
+%]]></script></div><p>From which we can calculate the Ricci tensor</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \bar R & = \begin{pmatrix}
+        \left[A'' + A'^2 - A'B' + (n - 1)\frac{A'}{r}\right]e^{A - 2B}\dd t\\
+        \left[-A'' - A'^2 + A'B' + (n - 1)\frac{B'}{r}\right]e^{-B}\dd r\\
+        \left[-A' + B' + (n - 2)\frac{e^{2B} - 1}{r}\right]H'e^{-2B}
+    \end{pmatrix}^T \sigma\\
+    & = \left[A'' + A'^2 - A'B' + (n - 1)\frac{A'}{r}\right]e^{2A - 2B}\dd t^2\\
+    & \qquad + \left[-A'' - A'^2 + A'B' + (n - 1)\frac{B'}{r}\right]\dd r^2\\
+    & \qquad + \left[n - 2 - e^{-2B}\left(n - 2 + (A' - B')r\right)\right]H'H.
+\end{aligned}
+%]]></script></div><p>The vacuum Einstein's equation <script type="math/tex">%<![CDATA[
+\bar R = 0
+%]]></script> then reads</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{cases}
+    A'' + A'^2 - A'B' + (n - 1)\frac{A'}{r} = 0;\\
+    -A'' - A'^2 + A'B' + (n - 1)\frac{B'}{r} = 0;\\
+    n - 2 - e^{-2B}\left(n - 2 + (A' - B')r\right) = 0,
+\end{cases}
+%]]></script></div><p>which solves to</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+A = -B + c_1, \qquad 
+e^{2B} = \frac{1}{1 + c_2 r^{2 - n}},
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+c_1
+%]]></script> and <script type="math/tex">%<![CDATA[
+c_2
+%]]></script> are two constants. When <script type="math/tex">%<![CDATA[
+n = 3
+%]]></script>, we get the well-known Schwartchild solution.</p></div><footer class="post-footer"><a class="btn-tag" href="/tags/general-relativity/" title="Tag: General relativity"><i class="fas fa-tag"></i>General relativity</a><a class="btn-tag" href="/tags/differential-geometry/" title="Tag: Differential geometry"><i class="fas fa-tag"></i>Differential geometry</a></footer></article></div></div><footer class="main-footer"><div class="footer-row-2"><div class="footer-right"><span>Links</span><ul class="link-list"><li><a href="https://zzy.blog.ustc.edu.cn/" target="_blank">zzy(BG6GCZ)</a></li><li><a href="https://wxyhly.github.io/" target="_blank">wxy</a></li><li><a href="https://www.futantan.com/" target="_blank">futantan</a></li></ul></div><div class="divider"></div><div class="footer-left"><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p><p>Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.</p><p><i class="fab fa-html5"></i> <a href="http://validator.w3.org/check?uri=https://hadroncfy.com/articles/2019/03/31/curvature-2-form/index.html" target="_blank">Validate HTML5</a></p></div></div></footer><div id="search-panel"><div class="search-inner empty" id="search-inner"><div class="search-input-container"><a id="btn-clear-search"><i class="fas fa-times"></i></a><input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." /></div><div class="search-result-container"><ul id="search-result"></ul><div id="search-loading" class="show"></div><div id="search-no-result-hint"><p class="icon"><i class="fas fa-search"></i></p><p class="text">No result found.</p></div></div></div></div><a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a><script src="/js/main.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script></body></html>
