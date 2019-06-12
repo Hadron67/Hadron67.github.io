@@ -54,7 +54,7 @@ module.exports = async (app) => ({
             path: '/rss.xml',
             limit: 10
         }),
-        app.simpleMarkdownFilter(),
+        app.draft(),
         app.server({
             port: 8080,
             addr: '0.0.0.0'
