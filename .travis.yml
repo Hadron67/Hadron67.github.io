@@ -11,11 +11,9 @@ install:
   - cd Noteblog
   - npm i
   - cd ..
-  - npm i rollup -g
-  - npm i terser -g
   - cd theme/default
-  - rollup -c
-  - terser dist/main.js --compress --mangle -o dist/main.js
+  - npm i
+  - npm run build
   - cd ../..
 
 script:

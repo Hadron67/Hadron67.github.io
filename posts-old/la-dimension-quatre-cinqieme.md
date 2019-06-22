@@ -120,12 +120,12 @@ $$
 
 我们的角速度2-矢量为${\bf\omega}$，那么旋转的变换矩阵就可以写成${\bf\Lambda}=e^{\omega t}$，与上面的不同只在于这里的参数是时间。所以代入我们之前推出来的科里奥利力表达式我们得到
 $$
-\begin{align}
+\begin{aligned}
 {\bf F}_2&=-2m{\bf\Lambda}^{-1}\dot{\bf\Lambda}\dot{\bf r}\\
 &=-2me^{-\omega t}\omega e^{\omega t}\vec{v}\\
 &=-2m{\bf\omega}\cdot\vec{v}\\
 &=2m(\star\vec{\omega})\cdot\vec{v}=2m\vec{v}\times\vec{\omega}
-\end{align}
+\end{aligned}
 $$
 其中我们用到了角速度2-矢量的定义和公式$\vec{a}\times\vec{b}=\star(\vec{a}\land\vec{b})$以及$(\star\vec{a})\cdot\vec{b}=-\star(\vec{a}\land\vec{b})$，如果大家还不了解可以去看一下我的[这篇文章](/2016/04/21/axial-vectors/)。
 其实在物理里面经常出现像$e^{F\alpha}$的指数映射，代表的都是一种变换群的元素，比如自旋群、洛伦兹群等，在以后的文章里面会涉及到。

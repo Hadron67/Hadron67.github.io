@@ -5,11 +5,11 @@ title: Test
 category: Note
 disabled: true
 ---
-```mathjax-defs
+$$ %hidden
 \def\dd{\mathrm{d}}
 \def\pd#1#2{\frac{\partial #1}{\partial #2}}
 % \def\vec#1{\overrightarrow{#1}}
-```
+$$
 **This is just a test post, it doesn't contain anything make sense, just ignore it...**
 
 This is a test page $\vec B = \nabla\times\vec A$ **Scientia gravis est, praeter non mens et anima est.** Vestibulum tortor quam, *feugiat vitae*, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed rtherth.

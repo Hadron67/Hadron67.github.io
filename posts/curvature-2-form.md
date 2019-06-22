@@ -7,10 +7,10 @@ tags:
 - General relativity
 - Differential geometry
 ---
-```mathjax-defs
-\def\tensor#1{{\bf #1}}
-\def\dd{\mathrm{d}}
-```
+$$ %hidden
+\gdef\tensor#1{{\bf #1}}
+\gdef\dd{\mathrm{d}}
+$$
 In differential geometry, and especially in general relativity, the Riemann curvature tensor is an important object for the geometric property of a manifold, solving the Enstein's equation one always needs to calculate the curvature tensor. But the component expression of Riemann tensor is too complicated, making it painful to calculate it by hand, and less powerful when dealing with various problems. Instead,  using curvature 2-form would somehow be better.
 
 <!-- more -->
@@ -54,7 +54,7 @@ This is the **Cartan's first structural equation**.
 > \begin{aligned}
 > \dd\sigma^\mu(e_\nu, e_\rho) &= e_\nu(\sigma^\mu(e_\rho)) - e_\rho(\sigma^\mu(e_\nu)) - \sigma^\mu([e_\nu, e_\rho])\\
 > & = -\sigma^\mu(\nabla_{e_\nu}e_\rho - \nabla_{e_\rho}e_\nu - T(e_\nu, e_\rho))\\
-> & = -(\gamma^\mu_{\nu\rho} - \gamma^\mu_{\rho\nu}) - T^\mu_{\nu\rho},
+> & = -(\gamma^\mu_{\nu\rho} - \gamma^\mu_{\rho\nu}) + T^\mu_{\nu\rho},
 > \end{aligned}
 > $$
 > where we have used the definition of torsion tensor
@@ -71,7 +71,7 @@ Written in matrix form, the above result is simply
 $$ \dd\sigma = -\omega\wedge\sigma + \Theta, $$
 where $\sigma$ and $\Theta$ are column vectors whose entries are $\{\sigma^\mu\}$ and $\{\Theta^\mu\}$.
 
-It might be suprising at this point, since the exterier derivative has no dependency on the connection. In fact, the above result doesn't fully determine the connection 1-form, it's just a constrain on it, more equations are required if we wish to calculate the connection.
+It might be suprising at this point, since the exterier derivative has no dependency on the connection. In fact, the above result doesn't fully determine the connection 1-form, it's just a constraint on it, more equations are required if we wish to calculate the connection.
 
 Now consider the Levi-Civita connection. If $\{e_\mu\}$ is *rigid tetrad*, i.e., the metric's components $g_{\mu\nu} \equiv g(e_\mu, e_\nu)$ are all constant on this tetrad, then $\omega^\nu{}_\mu$ satisfies
 $$

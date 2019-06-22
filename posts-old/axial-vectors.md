@@ -167,7 +167,7 @@ $$
 $$
 代入线速度的公式我们发现
 $$
-\begin{pmatrix}v_{x}\\v_{y}\end{pmatrix}={\bf A}\begin{pmatrix}x\\y\end{pmatrix}，\begin{pmatrix}v_{z}\\v_{t}\end{pmatrix}={\bf B}\begin{pmatrix}z\\t\end{pmatrix}
+\begin{pmatrix}v_{x}\\v_{y}\end{pmatrix}={\bf A}\begin{pmatrix}x\\y\end{pmatrix}, \begin{pmatrix}v_{z}\\v_{t}\end{pmatrix}={\bf B}\begin{pmatrix}z\\t\end{pmatrix}
 $$
 也就是说，物体在$Oxy$面中的坐标只会影响到它在$Oxy$面中线速度的分量，$Ozt$面中的坐标同样也只影响$Ozt$面中的速度。在$Oxy$面中的旋转与$Ozt$面中的旋转是完全独立的，就好像是两个不同的转动一样。而且，空间中除了旋转的轴点以外其他点都在旋转，此时根本就没有旋转轴之类的东西了！我们把这种旋转称为**双旋转**。类似地，六维空间中就有三旋转，八维空间中就有四旋转，2n维空间中就有n旋转。在我之前的文章中已经有双旋转的例子了，它就是洛伦兹变换，即时空的伪转动和空间的转动一起构成双旋转。
 

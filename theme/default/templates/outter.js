@@ -15,6 +15,7 @@ module.exports = (main, mod) => {
     let {escapeS} = main.helper;
 
     let config = main.config;
+    let libs = config.libs;
     let ext = main.ext;
 
     let domain = 'localhost';
@@ -26,7 +27,7 @@ module.exports = (main, mod) => {
     }
 
     let {head, header} = mod.require(_('head.js'));
-    let mathjax = () => `<script type="text/javascript" async src="${escapeS(config.mathjaxURL)}"></script>`;
+    let mathjax = () => `<script type="text/javascript" async src="${escapeS(libs.mathjax)}"></script>`;
 
     let creativeCommon = [
         // '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">',
@@ -108,7 +109,8 @@ module.exports = (main, mod) => {
                 searchPanel,
                 '<a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a>',
                 '<script src="/js/main.js"></script>',
-                mathjax(),
+                libs.katex.prerendering ? '' : '<script src="/js/katex-renderer.js"></script>',
+                // mathjax(),
             '</body>',
         '</html>'
     ];

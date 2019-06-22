@@ -1,5 +1,6 @@
 'use strict';
 const pathd = require('path');
+const katex = require('katex');
 
 function addNewLineToEnds(s){
     if (s.charAt(0) !== '\n'){
@@ -11,10 +12,33 @@ function addNewLineToEnds(s){
     return s;
 }
 
+let katexCfg = {
+    throwOnError: false,
+    displayMode: true,
+    macros: null,
+    strict(code, msg, token){
+        if (code !== 'unicodeTextInMathMode'){
+            this.ctx.logger.warn(msg);
+        }
+        return 'ignore';
+    }
+};
+
+const regHidden = /^[ \t\n\r]*%[ \t]*hidden/;
+
 module.exports = app => {
     let { escapeS, escapeHTML } = app.helper;
     let NodeType = app.markdown.NodeType;
+    
+    function mathjaxTag(type, cls, content){
+        return `<script type="${type}"${cls ? ' class="' + cls + '"' : ''}>%<![CDATA[${addNewLineToEnds(content)}%]]></script>`;
+    }
+    
     return class MyMarkdownRenderer extends app.markdown.DefaultRenderer {
+        constructor(ctx, tags){
+            super(ctx, tags);
+            this.katexMacros = {};
+        }
         enterHeading(node) {
             if (node.val === 2){
                 let id = this.getHeadingNodeID(node);
@@ -32,12 +56,7 @@ module.exports = app => {
                 this.text += `</h${node.val}>`;
         }
         visitCode(node) {
-            if (node.lang === 'mathjax-defs'){
-                // XXX: A hack! 
-                this.text += `<div class="mathjax-wrapper hidden"><script type="math/tex">%<![CDATA[${addNewLineToEnds(node.val)}%]]></script></div>`;
-            }
-            else
-                this.text += `<pre><code lang="${escapeS(node.lang)}">${escapeHTML(node.val)}</code></pre>`;
+            this.text += `<pre><code lang="${escapeS(node.lang)}">${escapeHTML(node.val)}</code></pre>`;
         }
         visitImage(node) {
             this.addImage(node);
@@ -76,13 +95,43 @@ module.exports = app => {
             }
         }
         visitBlockMathjax(node) {
-            this.text += [
-                '<div class="mathjax-wrapper">',
-                    '<script type="math/tex; mode=display">',
-                        `%<![CDATA[${addNewLineToEnds(node.val)}%]]>`,
-                    '</script>',
-                '</div>'
-            ].join('');
+            let libs = this.ctx.config.libs;
+            let hidden = regHidden.test(node.val);
+            if (libs.katex.prerendering){
+                katexCfg.macros = this.katexMacros;
+                katexCfg.displayMode = true;
+                let str = katex.renderToString(node.val, katexCfg);
+                if (!hidden){
+                    this.text += [
+                        '<div class="mathjax-wrapper">',
+                            str,
+                        '</div>'
+                    ].join('');
+                }
+            }
+            else {
+                if (!hidden){
+                    this.text += [
+                        '<div class="mathjax-wrapper">',
+                            mathjaxTag('math/tex; mode=display', '', node.val),
+                        '</div>'
+                    ].join('');
+                }
+                else {
+                    this.text += mathjaxTag('math/tex; mode=hidden', 'mathjax-defs hidden', node.val);
+                }
+            }
+        }
+        visitInlineMathjax(node){
+            let libs = this.ctx.config.libs;
+            if (libs.katex.prerendering){
+                katexCfg.macros = this.katexMacros;
+                katexCfg.displayMode = false;
+                this.text += katex.renderToString(node.val, katexCfg);
+            }
+            else {
+                this.text += mathjaxTag('math/tex', '', node.val);
+            }
         }
 
         enterParagraph(node){
@@ -145,6 +194,11 @@ module.exports = app => {
                 return !inline;
             }
             return false;
+        }
+
+        render(node){
+            this.katexMacros = {};
+            return super.render(node);
         }
     };
 }

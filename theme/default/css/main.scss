@@ -85,7 +85,7 @@ $spacing-unit:     30px !default;
     }
 }
 
-$link-color: #e32d40 !default;
+$link-color: #e32dac !default;
 $link-hover-color: #00e;
 
 $top-border-color: #77f;
@@ -183,6 +183,9 @@ ul.main-post-list {
     &.hidden {
         display: none;
     }
+}
+.katex {
+    font-size: 1.13em !important;
 }
 
 $z-idx-title-bar: 12;

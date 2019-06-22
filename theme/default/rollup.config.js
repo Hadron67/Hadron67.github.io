@@ -1,3 +1,4 @@
+import { terser } from 'rollup-plugin-terser';
 
 export default {
     input: 'js/main.js',
@@ -6,4 +7,7 @@ export default {
         name: 'hkm',
         format: 'umd'
     },
+    plugins: [
+        terser()
+    ]
 }

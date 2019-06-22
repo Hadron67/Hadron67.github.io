@@ -13,6 +13,7 @@ module.exports = params => async (app) => {
         let scss = (await app.helper.find(_('css'))).map(f => pathd.join(_('css'), f.toString()));
         app.scss.register('/css/main.css', _('css/main.scss'), scss);
         app.file.register('/js/main.js', _('dist/main.js'));
+        app.file.register('/js/katex-renderer.js', _('dist/katex-renderer.js'));
     
         await app.hot.register(_('templates/templates.js'));
     });

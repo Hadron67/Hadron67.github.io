@@ -19,11 +19,26 @@ module.exports = async (app) => ({
     author: 'hadroncfy',
     githubRepo: 'https://github.com/Hadron67/Hadron67.github.io/tree/source',
 
-    mathjaxURL: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML',
+    libs: {
+        mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML',
+        
+        fontawesome: {
+            url: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+            integrity: 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf'
+        },
 
-    fontawesome: {
-        url: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
-        integrity: 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf'
+        katex: {
+            css: {
+                url: 'https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css',
+                integrity: 'sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j'
+            },
+            js: {
+                url: 'https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js',
+                integrity: 'sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ'
+            },
+
+            prerendering: false
+        }
     },
 
     links: {

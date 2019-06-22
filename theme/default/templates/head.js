@@ -4,9 +4,12 @@ const pathd = require('path');
 module.exports = (main, mod) => {
     let { escapeHTML, escapeS } = main.helper;
     let config = main.config;
+    let libs = config.libs;
     let ext = main.ext;
 
-    let fontawesome = () => `<link rel="stylesheet" href="${escapeS(config.fontawesome.url)}" integrity="${config.fontawesome.integrity}" crossorigin="anonymous">`;
+    let fontawesome = () => `<link rel="stylesheet" href="${escapeS(libs.fontawesome.url)}" integrity="${libs.fontawesome.integrity}" crossorigin="anonymous">`;
+    let katexCSS = () => `<link rel="stylesheet" href="${escapeS(libs.katex.css.url)}" integrity="${libs.katex.css.integrity}" crossorigin="anonymous">`;
+    let katexJs = () => `<script defer src="${escapeS(libs.katex.js.url)}" integrity="${libs.katex.js.integrity}" crossorigin="anonymous"></script>`;
 
     let metaTags = () => [
         '<meta http-equiv="X-UA-Compatible" content="IE=edge" />',
@@ -26,6 +29,8 @@ module.exports = (main, mod) => {
         '<script> (function(){})(); </script>',
         metaTags(),
         fontawesome(),
+        katexCSS(),
+        libs.katex.prerendering ? '' : katexJs()
     ];
 
     let header = (banner, active = '') => [
