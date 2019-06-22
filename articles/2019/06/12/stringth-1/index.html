@@ -1,0 +1,442 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>Notes on String Theory (1) | Hadroncfy's Notebook</title><link href="/css/main.css" type="text/css" rel="stylesheet"><script> (function(){})(); </script><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta property="og:site_name" content="Hadroncfy's Notebook" /><meta property="og:url" content="https://hadroncfy.com/articles/2019/06/12/stringth-1/index.html" /><meta property="og:title" content="Notes on String Theory (1)" /><meta property="og:type" content="article" /><meta property="og:description" content="  %hidden\n\gdef\dd{\mathrm{d}}\n\gdef\od#1#2{\frac{\dd #1}{\dd #2}}\n\gdef\pd#1#2{\frac{\partial #1}{\partial #2}}\n\gdef\vd#1#2{\frac{\delta #1}{\delta #2}}\n\gdef\ket#1{\left|#1\right\rangle}\n\gdef\brak" /><meta name="description" content="  %hidden\n\gdef\dd{\mathrm{d}}\n\gdef\od#1#2{\frac{\dd #1}{\dd #2}}\n\gdef\pd#1#2{\frac{\partial #1}{\partial #2}}\n\gdef\vd#1#2{\frac{\delta #1}{\delta #2}}\n\gdef\ket#1{\left|#1\right\rangle}\n\gdef\brak" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script></head><body><header class="main-header clearfix"><div class="banner"><hgroup><h1>Welcome to</h1><h1>Hadroncfy's Notebook</h1></hgroup></div><nav class="site-nav clearfix" id="main-nav"><a href="javascript:;" id="btn-collapse" class="nav-btn"><i class="fas fa-bars"></i></a><ul class="nav-list right"><li><a href="javascript:;" class="nav-btn" id="btn-search"><span class="nav-icon-btn"><i class="fas fa-search"></i></span></a></li><li><a href="https://github.com/Hadron67/Hadron67.github.io/tree/source" class="nav-btn"><span class="nav-icon-btn"><i class="fab fa-github"></i></span></a></li><li><a href="/rss.xml" class="nav-btn"><span class="nav-icon-btn"><i class="fas fa-rss"></i></span></a></li></ul><ul class="nav-list collapse" id="main-nav-list"><li class="collapse"><a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a></li><li><a href="/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-item-name">Home</span></a></li><li><a href="/archive/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-archive"></i></span><span class="nav-item-name">Archive</span></a></li><li><a href="/category/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-item-name">Categories</span></a></li><li><a href="/tags/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-tags"></i></span><span class="nav-item-name">Tags</span></a></li></ul><div class="overlay"></div></nav></header><div class="outter-container"><div class="main-container"><article class="article-main"><header class="article-title-container"><h1 class="article-title">Notes on String Theory (1)</h1><div class="article-info-container"><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-calendar-alt"></i></span><time class="post-date" title="Created on" datetime="2019-06-12T11:09:23.000Z">2019-6-12</time></span><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-folder-open"></i></span><a href="/category/note/">Note</a><span class="category-divider"><i class="fas fa-chevron-right"></i></span><a href="/category/note/string/">String</a></span></div></header><div class="article-inner-container"><script type="math/tex; mode=hidden" class="mathjax-defs hidden">%<![CDATA[
+ %hidden
+\gdef\dd{\mathrm{d}}
+\gdef\od#1#2{\frac{\dd #1}{\dd #2}}
+\gdef\pd#1#2{\frac{\partial #1}{\partial #2}}
+\gdef\vd#1#2{\frac{\delta #1}{\delta #2}}
+\gdef\ket#1{\left|#1\right\rangle}
+\gdef\braket#1#2#3{\left\langle #1 \middle| #2 \middle| #3 \right\rangle}
+\gdef\abs#1{\left|#1\right|}
+%]]></script><p>In this note we'll discuss classical bosonic strings, and briefly introduce the quantization procedure.</p><p>This note follows <em>Superstring Theory</em> by Edward Witten, and <em>Introduction to String Theory and M-Theory</em> by Michio Kaku.</p><!--more--><div class="head2-wrapper" id="bosonic-string-actions"><h2>Bosonic string actions</h2></div><p>Before considering the string action, we first study the action of a relativistic point particle, it shares many properties with the bosonic string action.</p><h3>Point particle action</h3><p>The action is given by the length of the world line:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ S = -m\int \sqrt{-\dot x^2}\dd\tau. 
+%]]></script></div><p>Notice that it has reparameterization invariance:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ x'^\mu(\tau') = x^\mu(\tau), 
+%]]></script></div><p>the action changes as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    S' & = -m\int \sqrt{-\dot x'^2}\dd\tau\\
+    & = -m\int \sqrt{-\left[\od{x'^\mu(\tau')}{\tau'}\right]^2}\dd\tau'\\
+    & = -m\int \sqrt{-\left(\od{\tau}{\tau'}\right)^2 \dot x^2(\tau)}\od{\tau'}{\tau}\dd\tau\\
+    & = S.
+\end{aligned}
+%]]></script></div><p>In infinitesimal form, the reparameterization is</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \delta x^\mu = \dot x^\mu \delta\tau. 
+%]]></script></div><p>This invariance is gauge invariance, so gauge fixing procedure is required, which is simple in classical case, but quit non-trivial in quantum theory.</p><p>Note that the cannonical momentum</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ p_\mu = \vd{S}{\dot x^\mu} = m \frac{\dot x_\mu}{\sqrt{-\dot x^2}}, 
+%]]></script></div><p>satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+p^2 = -m^2, \qquad p\cdot \dot x = -m\sqrt{-\dot x^2} = L,
+%]]></script></div><p>leads to a vanishing Hamitonian</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ H = p\cdot \dot x - L = 0, 
+%]]></script></div><p>which is not only nonsense in classical theory, but also would result in serious problems in quantization. This is a result of gauge invariance, the four components of the momentum are not all physical, there are redundant degrees of freedom.</p><p>Dirac resolved this problem by treating <script type="math/tex">%<![CDATA[
+p^2 + m^2 = 0
+%]]></script> as an constraint, and write the Lagrangian as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L = p\cdot \dot x - \frac12 e(p^2 + m^2), 
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+e
+%]]></script> is a Lagrangian multiplier. There's no kinetic terms in <script type="math/tex">%<![CDATA[
+p_\mu
+%]]></script>, so we can solve for <script type="math/tex">%<![CDATA[
+p_\mu
+%]]></script> gives</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ p^\mu = \frac1e \dot x^\mu, 
+%]]></script></div><p>substitute back to Lagrangian gives</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L = \frac12 \left(e^{-1} \dot x^2 - em^2\right). 
+%]]></script></div><p>The equation for <script type="math/tex">%<![CDATA[
+e
+%]]></script> reads</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \dot x^2 + e^2m^2 = 0, 
+%]]></script></div><p>solve for <script type="math/tex">%<![CDATA[
+e
+%]]></script> and substitute it into above, we recover the original Lagrangian. Note that this new Lagrangian still has reparameterization invariance:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+x'^\mu(\tau') = x^\mu(\tau), \qquad 
+e'(\tau') = \od{\tau}{\tau'} e(\tau).
+%]]></script></div><p>Notice <script type="math/tex">%<![CDATA[
+e
+%]]></script> changes covariantly, so can be regarded as some sort of "metric" on the world line, and reparameterization is a change of coordinate, similiar to the diffeomorphism invariance of general relativity. Since <script type="math/tex">%<![CDATA[
+e
+%]]></script> has one gauge freedom, we can make a gauge choice by setting <script type="math/tex">%<![CDATA[
+e = 1/m
+%]]></script>, the momentum and equation for <script type="math/tex">%<![CDATA[
+e
+%]]></script> becomes</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ p^\mu = m\dot x^\mu, \qquad \dot x^2 = -1, 
+%]]></script></div><p>the former is the familiar definition of 4-momentum, and the latter is the normalize condition of 4-velocity.</p><h3>The Nambu-Goto action</h3><p>Now consider string case. We use <script type="math/tex">%<![CDATA[
+(\tau, \sigma)
+%]]></script> to parameterize the world sheet sweeped by the string, where <script type="math/tex">%<![CDATA[
+\tau
+%]]></script> is the timelike direction, and <script type="math/tex">%<![CDATA[
+\sigma
+%]]></script> is the spacelike, ranging from <script type="math/tex">%<![CDATA[
+0
+%]]></script> to <script type="math/tex">%<![CDATA[
+\pi
+%]]></script>. Thus the spacetime position of a point on the string can be denoted by <script type="math/tex">%<![CDATA[
+X^\mu(\tau, \sigma)
+%]]></script>.</p><p>By anology from point particle, whose action is the length of the world line, the action of a string can be defined by the <em>area</em> of its world sheet. We can write the action, which is proportional to the world sheet area, as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ S = -T\int \sqrt{-h} \, \dd^2\sigma, 
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+h_{AB}
+%]]></script> (we use capital Latin letters to number the world sheet coordinate) is the induced metric on the world sheet</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+h_{AB} = \begin{pmatrix}
+    \dot X^2 & \dot X\cdot X'\\
+    \dot X\cdot X' & X'^2
+\end{pmatrix}.
+%]]></script></div><p>So </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ S = -T\int \sqrt{(\dot X\cdot X')^2 - \dot X^2 X'^2} \, \dd^2\sigma. 
+%]]></script></div><p>This is the <strong>Nambu-Goto action</strong>. <script type="math/tex">%<![CDATA[
+T
+%]]></script> is a constant which we'll later see is the string tension.</p><p>Similiar to particle case, this action has reparameterization invariance</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X'^\mu(\tau', \sigma') = X^\mu(\tau, \sigma). 
+%]]></script></div><p>The canonical momentum</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+P_\mu = \vd{S}{X^\mu} = -T\frac{X'_\mu \dot X\cdot X' - \dot X_\mu X'^2}{\sqrt{(\dot X\cdot X')^2 - \dot X^2X'^2}},
+%]]></script></div><p>which satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+P^2 = -T^2 X'^2, \quad
+P\cdot X' = 0, \quad
+P\cdot \dot X = L,
+%]]></script></div><p>also leads to a vanishing Hamitonian</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ H = P\cdot \dot X - L = 0. 
+%]]></script></div><p>As in the particle case, we introduce <script type="math/tex">%<![CDATA[
+P^\mu
+%]]></script> by constraints. But now we need two Lagrange multipliers:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L = P\cdot \dot X + \frac12 \alpha \left(P^2 + T^2 X'^2\right) + \beta P\cdot X'. 
+%]]></script></div><p>Solve the equation for <script type="math/tex">%<![CDATA[
+P^\mu
+%]]></script>, we get</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ P_\mu = -\frac{\dot X_\mu + \beta X'_\mu}{\alpha}, 
+%]]></script></div><p>substitute back to <script type="math/tex">%<![CDATA[
+L
+%]]></script> gives</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ 
+L = -\frac{1}{2\alpha}\dot X^2 - \frac{\beta}{\alpha}\dot X\cdot X' + \frac12\left(\alpha T^2 - \frac{\beta^2}{\alpha}\right)X'^2.
+%]]></script></div><p>If we write the Lagrangian in the form</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L = C^{AB}\partial_A X^\mu \partial_B X_\mu, 
+%]]></script></div><p>then the matrix <script type="math/tex">%<![CDATA[
+C^{AB}
+%]]></script> is</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+C^{AB} = \begin{pmatrix}
+    -\frac{1}{2\alpha} & -\frac{\beta}{2\alpha}\\
+    -\frac{\beta}{2\alpha} & \frac12\alpha T^2 - \frac{\beta^2}{2\alpha}
+\end{pmatrix},
+%]]></script></div><p>which satisfies <script type="math/tex">%<![CDATA[
+\det C = -T^2 / 4
+%]]></script>. So we can introduce a "metric" <script type="math/tex">%<![CDATA[
+h_{AB}
+%]]></script> on the world sheet by setting </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ -\frac{T}{2}\sqrt{-h} \, h^{AB} = C^{AB}, 
+%]]></script></div><p>the Nambu-Goto action then becomes</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+S = -\frac{T}{2}\int \sqrt{-h} \, h^{AB} \partial_A X^\mu \partial_B X_\mu \, \dd^2\sigma.
+%]]></script></div><p>Again, this action also posesses reparametrization invariance</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    X'^\mu(\sigma') & = X^\mu(\sigma), \\
+    h'_{AB}(\sigma') & = \frac{\partial\sigma^C}{\partial\sigma'^A}\frac{\partial\sigma^D}{\partial\sigma'^B}h_{CD}(\sigma),
+\end{aligned}
+%]]></script></div><p>or in infinitesimal form</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \delta X^\mu & = \epsilon^A \partial_A X^\mu\\
+    \delta h^{AB} & = \epsilon^C \partial_C h^{AB} - \partial_C \epsilon^A h^{CB} - \partial_C\epsilon^B h^{AC}.
+\end{aligned}
+%]]></script></div><div class="head2-wrapper" id="classical-solutions"><h2>Classical solutions</h2></div><p>Since the action has gauge freedom, we can fix the gauge by setting</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+h_{AB} = \eta_{AB} = \begin{pmatrix}
+    -1 & 0 \\ 0 & 1
+\end{pmatrix},
+%]]></script></div><p>the action then becomes</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ S = \frac{T}{2}\int \left(\dot X^2 - X'^2\right)\dd^2\sigma. 
+%]]></script></div><p>Since the coordinate <script type="math/tex">%<![CDATA[
+\sigma
+%]]></script> has finite range, the variation of the action would give a surface term</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \int \dd\tau \, \left.X'\cdot \delta X\right|_{\sigma = 0}^{\sigma = \pi}. 
+%]]></script></div><p>This term automatically vanishes in the closed string case, but for open string, we need to impose either the Neumann boundary condition</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X'^\mu(0) = X'^\mu(\pi) = 0, 
+%]]></script></div><p>or the Dirichlet boundary condition</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X^\mu(0) = \text{const}, \qquad X^\mu(\pi) = \text{const}. 
+%]]></script></div><p>For now, we'll only consider the Neumann boundary condition.</p><p>The equation of motion is then</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \left(\frac{\partial^2}{\partial \tau^2} - \frac{\partial^2}{\partial\sigma^2}\right) X^\mu = 0. 
+%]]></script></div><p>Introduce a new set of coordinate <script type="math/tex">%<![CDATA[
+\sigma^\pm = \tau \pm \sigma
+%]]></script>, so that <script type="math/tex">%<![CDATA[
+\partial_\pm = (\partial_\tau \pm \partial_\sigma) / 2
+%]]></script>, the above can be written as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \partial_+ \partial_- X^\mu = 0, 
+%]]></script></div><p>so that the solution is</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X^\mu = X_R^\mu(\sigma^-) + X_L^\mu(\sigma^+). 
+%]]></script></div><p>But in addition to the equation of motion, we still need to impose the equation of <script type="math/tex">%<![CDATA[
+h_{AB}
+%]]></script>:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \vd{S}{h^{AB}} = 0, 
+%]]></script></div><p>which is equivalent to the vanishing of the energy-momentum tensor</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ T_{AB} = -\frac{2}{T}\frac{1}{\sqrt{-h}}\vd{S}{h^{AB}}. 
+%]]></script></div><p>Using the fact that</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \frac{\partial h}{\partial h^{AB}} = -hh_{AB}, 
+%]]></script></div><p>the energy-momentum tensor is given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ T_{AB} = \partial_A X^\mu \partial_B X_\mu - \frac12 h_{AB} h^{A'B'}\partial_{A'}X^\mu \partial_{B'}X_\mu. 
+%]]></script></div><p>Its components are</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    T_{00} & = T_{11} = \frac12 \left(\dot X^2 + X'^2\right),\\
+    T_{10} & = T_{01} = \dot X\cdot X'.
+\end{aligned}
+%]]></script></div><p>we can express the components of <script type="math/tex">%<![CDATA[
+T_{AB}
+%]]></script> in coordinate <script type="math/tex">%<![CDATA[
+\sigma^\pm
+%]]></script> as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    T_{+-} & = T_{-+} = T_{11} - T_{00} = 0,\\
+    T_{++} & = \frac14 \left(\dot X^\mu + X'^\mu\right)^2 = \left(\partial_+ X\right)^2,\\
+    T_{--} & = \left(\partial_- X\right)^2.
+\end{aligned}
+%]]></script></div><p>So the constraint from <script type="math/tex">%<![CDATA[
+h^{AB}
+%]]></script> becomes</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X_R'^2 = X_L'^2 = 0. 
+%]]></script></div><h3>Neother currents</h3><p>It is easy to see that the string action has Poincaré invariance</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X^\mu \to X^\mu + F^\mu = X^\mu + \omega^\mu{}_\nu X^\nu + a^\mu, 
+%]]></script></div><p>so there are associated Neother currents, just like in field theory. Using similiar method, we can find the Neother currents associated with translation and rotation are</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    P^\mu_A & = \vd{S}{(\partial^A X^\nu)} \pd{F^\nu}{a^\mu} = T\partial_A X^\mu,\\
+    J^{\mu\nu}_A & = \vd{S}{(\partial^A X^\nu)} \pd{F^\nu}{\omega^{\mu\nu}} = T(X^\mu \partial_A X^\nu - X^\nu \partial_A X^\mu).
+\end{aligned}
+%]]></script></div><p>They can be interpreted as momentum and angular momentum respectively.</p><h3>Regge trajectory</h3><p>We now consider the solution of an open string rotating in the <script type="math/tex">%<![CDATA[
+Oxy
+%]]></script> plane:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+X^\mu = \left(R\tau, R \cos\sigma \cos\tau, R\cos\sigma \sin\tau, 0\right).
+%]]></script></div><p>It is easy to verify this solution satisfies the equation of motion and constraints. The total energy and angular momentum are given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    E & = \int_0^\pi P^0_0 \, \dd\sigma = \pi RT,\\
+    J & = \int_0^\pi J_0^{12} \, \dd\sigma = \frac{\pi}{2} R^2 T,
+\end{aligned}
+%]]></script></div><p>we found that <script type="math/tex">%<![CDATA[
+E^2
+%]]></script> is proportional to <script type="math/tex">%<![CDATA[
+J
+%]]></script></p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ J = \frac{1}{2\pi T}E^2. 
+%]]></script></div><p>This relation is known as the <strong>Regge trajectory</strong>, <script type="math/tex">%<![CDATA[
+\alpha' = 1/2\pi T
+%]]></script> is the <strong>Regge slope</strong>.</p><h3>Mode expansion</h3><p>For closed strings, since <script type="math/tex">%<![CDATA[
+\sigma
+%]]></script> is periodic in <script type="math/tex">%<![CDATA[
+[0, \pi]
+%]]></script>, we can write the solution as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    X_R^\mu & = \frac12 x^\mu + \frac12 l^2 p^\mu \sigma^- + \frac{i}{2}l\sum_{n \neq 0} \frac1n \alpha_n^\mu e^{-2in\sigma^-},\\
+    X_L^\mu & = \frac12 x^\mu + \frac12 l^2p^\mu\sigma^+ + \frac{i}{2}l\sum_{n \neq 0}\frac1n \tilde\alpha_n^\mu e^{-2in\sigma^+},
+\end{aligned}
+%]]></script></div><p>where constant <script type="math/tex">%<![CDATA[
+l
+%]]></script> is given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ l = \frac{1}{\sqrt{\pi T}}, 
+%]]></script></div><p>and <script type="math/tex">%<![CDATA[
+\alpha_n
+%]]></script> are Fourier coefficients, requiring <script type="math/tex">%<![CDATA[
+X_{L, R}
+%]]></script> to be real gives</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+(\alpha_n^\mu)^\ast = \alpha_{-n}^\mu, \qquad
+(\tilde\alpha_n^\mu)^\ast = \tilde\alpha_{-n}^\mu.
+%]]></script></div><p>Solution for open string can be obtained by rewriting the closed string solution for <script type="math/tex">%<![CDATA[
+\sigma \in [0, 2\pi]
+%]]></script>, and setting</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X^\mu(\tau, \sigma) = X^\mu(\tau, -\sigma), \tag{*} 
+%]]></script></div><p>so that the Neumann boundary condition is automatically satisfied, and we also get</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \alpha_n^\mu = \tilde\alpha_n^\mu, 
+%]]></script></div><p>the open string solution is then</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ X^\mu = x^\mu + l^2 p^\mu\tau + il\sum_{n \neq 0}\frac1n \alpha_n^\mu e^{-in\tau}\cos\sigma. 
+%]]></script></div><p>The constraint condition for closed string reads</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \partial_- X^\mu & = \frac12 l^2p^\mu + l\sum_{n \neq 0}\alpha_n^\mu e^{-in\sigma^-} = l\sum_{n} \alpha_n^\mu e^{-2in\sigma^-},\\
+    \partial_+ X^\mu & = l\sum_{n} \tilde\alpha_n^\mu e^{-2in\sigma^+},
+\end{aligned}
+%]]></script></div><p>where we have set <script type="math/tex">%<![CDATA[
+\alpha_0^\mu = \tilde\alpha_0^\mu = \frac12 l p^\mu
+%]]></script>. Similiarly for open string</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \partial_\pm X^\mu = l\sum_n \alpha_n^\mu e^{-in\sigma^\pm}. 
+%]]></script></div><p>We can now express the constraints in terms of the Fourier components (evaluated at <script type="math/tex">%<![CDATA[
+\tau = 0
+%]]></script>)</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    L_m & = \frac{T}{2}\int_0^\pi (\partial_+ X)^2 e^{-2im\sigma}\dd\sigma = \frac12 \sum_n \alpha_{m - n} \cdot \alpha_n,\\
+    \tilde L_m & = \frac{T}{2}\int_0^\pi (\partial_- X)^2 e^{-2im\sigma}\dd\sigma = \frac12 \sum_n \tilde\alpha_{m - n} \cdot \tilde\alpha_n,
+\end{aligned}
+%]]></script></div><p>for closed string. For open string, since it's not periodic in <script type="math/tex">%<![CDATA[
+[0, \pi]
+%]]></script> but in <script type="math/tex">%<![CDATA[
+[0, 2\pi]
+%]]></script>, we have</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+L_m = T\int_{-\pi}^\pi (\partial_+ X)^2 e^{-im\sigma}\dd\sigma = \frac12 \sum_n \alpha_{m - n} \cdot \alpha_n.
+%]]></script></div><div class="head2-wrapper" id="canonical-quantization"><h2>Canonical quantization</h2></div><p>We begin by imposing the canonical commutation relation</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ [X^\mu(\tau, \sigma), P^\nu(\tau, \sigma')] = i\eta^{\mu\nu}\delta(\sigma - \sigma'), 
+%]]></script></div><p>where</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ P_\mu = \vd{S}{\dot X^\mu} = T\dot X_\mu 
+%]]></script></div><p>is the canonical momentum. This commutator implies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+[x^\mu, p^\nu] = i\eta^{\mu\nu}, \quad
+[\alpha_n^\mu, \alpha_m^\nu] = [\tilde\alpha_n^\mu, \tilde\alpha_m^\nu] = n\delta_{m + n}\eta^{\mu\nu},
+%]]></script></div><p>while all others vanish. The operator <script type="math/tex">%<![CDATA[
+a_n^\mu = \alpha_n^\mu / \sqrt{n}
+%]]></script> thus can be regarded as mode ladder operators. We may denote the vacuum state with momentum <script type="math/tex">%<![CDATA[
+k^\mu
+%]]></script> by <script type="math/tex">%<![CDATA[
+\ket{0, k^\mu}
+%]]></script>, satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ p^\mu\ket{0, p^\mu} = k^\mu\ket{0, p^\mu}, \quad \alpha_n^\mu \ket{0, k^\mu} = \alpha_n^\mu \ket{0, k^\mu} = 0 \quad (n \geqslant 1). 
+%]]></script></div><p>Excited states can be created by action the vacuum state by <script type="math/tex">%<![CDATA[
+\alpha_{-n}
+%]]></script> or <script type="math/tex">%<![CDATA[
+\tilde\alpha_{-n}
+%]]></script>.</p><p>The Hamitonian is then given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ 
+\begin{aligned}
+    H = P\cdot \dot X - L & = \frac{T}{2}\int_0^\pi (\dot X^2 + X'^2) \, \dd\sigma\\ 
+    & = \frac12\sum_n(\alpha_{-n}\cdot \alpha_n + \tilde\alpha_{-n}\cdot \tilde\alpha_n)
+\end{aligned}
+%]]></script></div><p>for closed string, and</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    H & = \frac{T}{2}\int_0^\pi (\dot X^2 + X'^2)\dd\sigma = \frac{T}{4}\int_{-\pi}^\pi(\dot X^2 + X'^2)\dd\sigma\\
+    & = \frac12 \sum_n \alpha_{-n}\cdot\alpha_n.
+\end{aligned}
+%]]></script></div><p>for open string.</p><h3>Constraints and Virasoro algebra</h3><p>Not all the states created by <script type="math/tex">%<![CDATA[
+\alpha_{-n}
+%]]></script> are physical, they must also satisfy constraints. If we directly regard the constraint <script type="math/tex">%<![CDATA[
+L_m = 0
+%]]></script> as an operator relation, this would be too restricted. So, like the weak Lorentz condition imposed in the quantization of Maxwell field, we impose the constraint by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \braket{\psi'}{L_m}{\psi} = 0, 
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+\ket\psi
+%]]></script> and <script type="math/tex">%<![CDATA[
+\ket{\psi'}
+%]]></script> are physical states, these's a similiar constraint about <script type="math/tex">%<![CDATA[
+\tilde L_n
+%]]></script> for closed strings. Since <script type="math/tex">%<![CDATA[
+L_m^\dagger = L_{-m}
+%]]></script>, this condition is true if</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L_m \ket\psi = 0, \quad \text{for} \, m \geqslant 0. 
+%]]></script></div><p>But since <script type="math/tex">%<![CDATA[
+\alpha_n
+%]]></script> and <script type="math/tex">%<![CDATA[
+\alpha_{-n}
+%]]></script> do not commute, the expression for <script type="math/tex">%<![CDATA[
+L_m
+%]]></script> should be considered carefully. This commuting ambiguity only arises for <script type="math/tex">%<![CDATA[
+L_0
+%]]></script>, so we <em>define</em> <script type="math/tex">%<![CDATA[
+L_0
+%]]></script> (similiarly for <script type="math/tex">%<![CDATA[
+\tilde L_0
+%]]></script>) to be</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L_0 = \frac12 \alpha_0^2 + \sum_{n = 1}^\infty \alpha_{-n}\cdot \alpha_n, 
+%]]></script></div><p>and write the constraint for <script type="math/tex">%<![CDATA[
+L_0
+%]]></script> as <script type="math/tex">%<![CDATA[
+(L_0 - a)\ket\psi = 0
+%]]></script>, where <script type="math/tex">%<![CDATA[
+a
+%]]></script> is an undetermined constant. Since <script type="math/tex">%<![CDATA[
+\alpha_0^\mu
+%]]></script> is proportional to the momentum operator, this constraint gives the mass-shell condition</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+m^2 = -p^2 = \frac{4}{\alpha'}\left(\sum_{n = 1}^\infty \alpha_{-n}\cdot\alpha_n - a\right)
+%]]></script></div><p>for closed string, and</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ m^2 = \frac{1}{\alpha'}\left(\sum_{n = 1}^\infty \alpha_{-n}\cdot\alpha_n - a\right) 
+%]]></script></div><p>for open string.</p><p>The commutator between <script type="math/tex">%<![CDATA[
+L_m
+%]]></script> generates an important algebra called the <strong>Virasoro algebra</strong>. </p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    [L_m, L_n] & = \frac14 \sum_{k, k'}[\alpha_{m - k}\cdot\alpha_k, \alpha_{n - k'}\cdot\alpha_{k'}]\\
+    & = 
+    \frac14\sum_{k, k'}\left[
+        k\alpha_{m - k}\cdot\alpha_{n - k'}\delta_{k + k'} + 
+        k\alpha_{m - k}\cdot\alpha_{k'}\delta_{k + n - k'}\right.\\
+        &\left. \qquad + 
+        (m - k)\alpha_{n - k'}\cdot\alpha_k\delta_{m - k + k'} +
+        (m - k)\alpha_{k'}\cdot\alpha_k\delta_{m + n - k - k'}
+    \right].
+\end{aligned}
+%]]></script></div><p>No commutation ambiguity arise if <script type="math/tex">%<![CDATA[
+m + n \neq 0
+%]]></script>, so that</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    [L_m, L_n] & = \frac12 \sum_k\left[k\alpha_{m - k}\cdot\alpha_{n + k} + (m - k)\alpha_{m + n - k}\cdot\alpha_k\right]\\
+    & = (m - n)\sum_k \alpha_{m + n - k}\cdot\alpha_k\\
+    & = (m - n)L_{m + n},
+\end{aligned}
+%]]></script></div><p>this is the <em>Witt algebra</em>. The case <script type="math/tex">%<![CDATA[
+m + n = 0
+%]]></script> should be carried out more carefully. We first introduce a regulator for <script type="math/tex">%<![CDATA[
+L_m
+%]]></script>:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L_m = \sum_{k = -N}^N\alpha_{m - k}\cdot\alpha_k, 
+%]]></script></div><p>so that</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    [L_n, L_{-n}] & = 
+    \frac14 \sum_{k = -N}^N k\alpha_{n - k}\cdot\alpha_{k - n}
+    + \frac14 \sum_{k = -N + n}^{N}k \alpha_{n - k}\cdot\alpha_{k - n}\\
+    & \qquad + \frac14 \sum_{k = -N + n}^N (n - k)\alpha_{-k}\cdot\alpha_k + 
+    \frac14 \sum_{k = -N}^N (n - k)\alpha_{-k}\cdot\alpha_k\\
+    & = n\alpha_0^2 + 
+    \frac12 \sum_{k = 1}^{N - n}(n + k)\alpha_{-k}\cdot\alpha_k + \frac12 \sum_{k = 1}^N(n - k)\alpha_{-k}\cdot\alpha_k\\
+    & \qquad +
+    \frac{D}4 \left(\sum_{k = 1}^{N + n} + \sum_{k = 1}^N\right) (n - k)k
+    + \frac{D}4 \left(\sum_{k = 1}^{N - n} + \sum_{k = 1}^N\right)(n - k)k\\
+    & = n\alpha_0^2 + 
+    \frac12 \sum_{k = 1}^{N - n}(n + k)\alpha_{-k}\cdot\alpha_k + \frac12 \sum_{k = 1}^N(n - k)\alpha_{-k}\cdot\alpha_k\\
+    & \qquad
+    - \frac{D}4 n\sum_{k = 1}^N k + \frac{D}{12}n(n^2 - 1).
+\end{aligned}
+%]]></script></div><p>When <script type="math/tex">%<![CDATA[
+N \to \infty
+%]]></script>, the first line of the last step becomes <script type="math/tex">%<![CDATA[
+nL_0
+%]]></script>, the divergent term is actually a result of normal ordering:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+L_0 & = \frac12 \alpha_0^2 + \frac12\sum_{k = 1}^\infty(\alpha_{-k}\cdot\alpha_k + \alpha_k\cdot\alpha_{-k})\\
+& = \frac12 \alpha_0^2 + \sum_{k = 2}^\infty \alpha_{-k}\cdot\alpha_k + \frac{D}2 \sum_{k = 1}^\infty k.
+\end{aligned}
+%]]></script></div><p>So we get</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ [L_n, L_{-n}] = 2nL_0 + \frac{D}{12}n(n^2 - 1). 
+%]]></script></div><p>The commutator <script type="math/tex">%<![CDATA[
+[L_m, L_n]
+%]]></script> thus can be summarized as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ [L_m, L_n] = (m - n)L_{m + n} + \frac{D}{12}m(m^2 - 1)\delta_{m, 0}. 
+%]]></script></div><p>This is the <em>Virasoro algebra</em>.</p><h3>Ghost elimination</h3><p>Consider the first exited open string state <script type="math/tex">%<![CDATA[
+\ket{\psi_1} = \epsilon\cdot\alpha_{-n}\ket{0, k^\mu}
+%]]></script> where <script type="math/tex">%<![CDATA[
+\epsilon^\mu
+%]]></script> is the polarization vector. Its norm is then given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \braket{0, k^\mu}{(\epsilon^\ast\cdot\alpha_n)(\epsilon\cdot\alpha_{-n})}{0, k^\mu} = n \epsilon^\ast_\mu \epsilon^\mu, 
+%]]></script></div><p>which might be negative, since <script type="math/tex">%<![CDATA[
+\eta_{\mu\nu}
+%]]></script> is not positive definite. Negative norm states are called <em>ghost</em>, they're unfavourable in a sensible theory.</p><p>But under certain conditions, the constraints would exclude all the ghosts from the physical space. Consider <script type="math/tex">%<![CDATA[
+\ket{\psi_1}
+%]]></script> again, mass-shell condition gives <script type="math/tex">%<![CDATA[
+\alpha'k^2 = a - n
+%]]></script>, while constraint of <script type="math/tex">%<![CDATA[
+L_m
+%]]></script> gives</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ L_m \epsilon\cdot\alpha_{-n} \ket{0, k^\mu} = -n\epsilon\cdot\alpha_{m - n}\ket{0, k^\mu} = 0. 
+%]]></script></div><p>This implies <script type="math/tex">%<![CDATA[
+n \leqslant 1
+%]]></script> and <script type="math/tex">%<![CDATA[
+\epsilon\cdot k = 0
+%]]></script>, leaves only <script type="math/tex">%<![CDATA[
+D - 1
+%]]></script> possible polarizations. We may let the <script type="math/tex">%<![CDATA[
+D - 2
+%]]></script> polarization vectors to be othogonal to the <script type="math/tex">%<![CDATA[
+k-t
+%]]></script> plane so they're all spacelike, giving a positive norm. While the last polarization is in the <script type="math/tex">%<![CDATA[
+k-t
+%]]></script> plane, <script type="math/tex">%<![CDATA[
+k^\mu
+%]]></script> must not be spacelike otherwise the polarization is timelike and has a negative norm. So for the theory to be ghost-free, <script type="math/tex">%<![CDATA[
+a
+%]]></script> must satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ a \leqslant 1. 
+%]]></script></div><p>Under this condition, the ground state <script type="math/tex">%<![CDATA[
+\ket{0, k^\mu}
+%]]></script>, whose mass-shell condition is <script type="math/tex">%<![CDATA[
+\alpha'k^2 = a
+%]]></script>, becomes a tachyon state. </p><p>We'll prove in later notes that the condition of no-ghost is <script type="math/tex">%<![CDATA[
+a < 1
+%]]></script> and <script type="math/tex">%<![CDATA[
+D < 26
+%]]></script> or <script type="math/tex">%<![CDATA[
+a = 1
+%]]></script> and <script type="math/tex">%<![CDATA[
+D = 26
+%]]></script>.</p></div></article></div></div><footer class="main-footer"><div class="footer-row-2"><div class="footer-right"><span>Links</span><ul class="link-list"><li><a href="https://zzy.blog.ustc.edu.cn/" target="_blank">zzy(BG6GCZ)</a></li><li><a href="https://wxyhly.github.io/" target="_blank">wxy</a></li><li><a href="https://www.futantan.com/" target="_blank">futantan</a></li></ul></div><div class="divider"></div><div class="footer-left"><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p><p>Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.</p><p><i class="fab fa-html5"></i> <a href="http://validator.w3.org/check?uri=https://hadroncfy.com/articles/2019/06/12/stringth-1/index.html" target="_blank">Validate HTML5</a></p></div></div></footer><div id="search-panel"><div class="search-inner empty" id="search-inner"><div class="search-input-container"><a id="btn-clear-search"><i class="fas fa-times"></i></a><input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." /></div><div class="search-result-container"><ul id="search-result"></ul><div id="search-loading" class="show"></div><div id="search-no-result-hint"><p class="icon"><i class="fas fa-search"></i></p><p class="text">No result found.</p></div></div></div></div><a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a><script src="/js/main.js"></script><script src="/js/katex-renderer.js"></script></body></html>
