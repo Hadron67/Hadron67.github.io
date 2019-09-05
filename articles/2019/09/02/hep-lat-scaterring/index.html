@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>Lattice simulation of Hadron Scattering in Non-rest Frame | Hadroncfy's Notebook</title><link href="/css/main.css" type="text/css" rel="stylesheet"><script> (function(){})(); </script><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta property="og:site_name" content="Hadroncfy's Notebook" /><meta property="og:url" content="/articles/2019/09/02/hep-lat-scaterring/index.html" /><meta property="og:title" content="Lattice simulation of Hadron Scattering in Non-rest Frame" /><meta property="og:type" content="article" /><meta property="og:description" content="Hadron resonance scattering amplitudes can be calculated from the energy level of the system. Luscher introduced a method that relates the phase shift with the energy level of the scattering system in" /><meta name="description" content="Hadron resonance scattering amplitudes can be calculated from the energy level of the system. Luscher introduced a method that relates the phase shift with the energy level of the scattering system in" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script></head><body><header class="main-header clearfix"><div class="banner"><hgroup><h1>Welcome to</h1><h1>Hadroncfy's Notebook</h1></hgroup></div><nav class="site-nav clearfix" id="main-nav"><a href="javascript:;" id="btn-collapse" class="nav-btn"><i class="fas fa-bars"></i></a><ul class="nav-list right"><li><a href="javascript:;" class="nav-btn" id="btn-search"><span class="nav-icon-btn"><i class="fas fa-search"></i></span></a></li><li><a href="https://github.com/Hadron67/Hadron67.github.io/tree/source" class="nav-btn"><span class="nav-icon-btn"><i class="fab fa-github"></i></span></a></li><li><a href="/rss.xml" class="nav-btn"><span class="nav-icon-btn"><i class="fas fa-rss"></i></span></a></li></ul><ul class="nav-list collapse" id="main-nav-list"><li class="collapse"><a class="nav-btn" id="btn-close-menu" href="javascript:;"><i class="fas fa-arrow-left"></i></a></li><li><a href="/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-item-name">Home</span></a></li><li><a href="/archive/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-archive"></i></span><span class="nav-item-name">Archive</span></a></li><li><a href="/category/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-item-name">Categories</span></a></li><li><a href="/tags/" class="nav-btn collapse"><span class="nav-icon"><i class="fas fa-tags"></i></span><span class="nav-item-name">Tags</span></a></li></ul><div class="overlay"></div></nav></header><div class="outter-container"><div class="main-container"><article class="article-main"><header class="article-title-container"><h1 class="article-title">Lattice simulation of Hadron Scattering in Non-rest Frame</h1><div class="article-info-container"><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-calendar-alt"></i></span><time class="post-date" title="Created on" datetime="2019-09-02T08:46:57.000Z">2019-9-2</time></span><span class="post-meta-block"><span class="post-info-icon"><i class="fas fa-folder-open"></i></span><a href="/category/note/">Note</a></span></div></header><div class="article-inner-container"><p>Hadron resonance scattering amplitudes can be calculated from the energy level of the system. Luscher introduced a method that relates the phase shift with the energy level of the scattering system in centre of mass (CM) frame, while Gotlieb generalized this method to non-rest frame, including the lab frame.</p><!--more--><div class="head2-wrapper" id="wavefunctions-in-cm-and-lab-frame"><h2>Wavefunctions in CM and lab frame</h2></div><p>Since the total momentum of a two-particle system is conserved even when the interaction is turned on, the wavefunction has the form</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\psi(x_1, x_2) = e^{-iP\cdot(x_1 + x_2) / 2} \phi(x_1 - x_2).
+%]]></script></div><p>In the CM and lab frame cases the system has vanishing and non-vanishing momenta, respectively, thus the wavefunctions have the forms</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+    \begin{aligned}
+        \psi_{\mathrm{CM}}(t, \vec x) & = e^{-iE_{\mathrm{CM}}t}\phi_{\mathrm{CM}}(\vec x),\\
+        \psi_L(x, X) & = e^{-iP\cdot X}\phi_L(x)
+    \end{aligned}
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+X = (x_1 + x_2) / 2
+%]]></script>, <script type="math/tex">%<![CDATA[
+t = X^0
+%]]></script>, <script type="math/tex">%<![CDATA[
+x = x_1 - x_2
+%]]></script>. Suppose the lab frame coordinate <script type="math/tex">%<![CDATA[
+x
+%]]></script> and CM frame coordinate <script type="math/tex">%<![CDATA[
+x^\ast
+%]]></script> are related by the transformation <script type="math/tex">%<![CDATA[
+x^\ast = \Lambda x
+%]]></script>, where</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    x^{\ast0} & = \gamma(x^0 + \vec v\cdot\vec x),\\
+    \vec x^\ast & = \Lambda\vec x \equiv \vec x_\perp + \gamma(\vec x_\parallel + \vec v x^0),
+\end{aligned}
+%]]></script></div><p>and using the transformation rule of wavefunctions</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \psi(x) = \psi'(x') = \psi'(\Lambda x), 
+%]]></script></div><p>the wavefunctions in the CM and lab frame can then be related as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \phi_L(x) = \phi_{\mathrm{CM}}(\Lambda \vec x). 
+%]]></script></div><p>Since we are interested in the case where the time coordinates of the two particles are equal, so that we have</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \phi_L(x^0 = 0, \vec x) = \phi_{\mathrm{CM}}(\Lambda\vec x). 
+%]]></script></div><div class="head2-wrapper" id="d-periodicity"><h2>d-periodicity</h2></div><p>Assume the system is in a box of size <script type="math/tex">%<![CDATA[
+L^3
+%]]></script>, the lab frame wavefunction must satifies the perioicity relation</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \psi_L(\vec x_1, \vec x_2) = \psi_L(\vec x_1 + \vec m L, \vec x_2 + \vec n L), \qquad \vec m, \vec n \in Z^3. 
+%]]></script></div><p>This implies that</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \vec P & = \frac{2\pi}{L} \vec d,\\
+    \phi_L(\vec x) & = (-)^{\vec d\cdot\vec n} \phi_L(\vec x + \vec nL).
+\end{aligned}
+%]]></script></div><p>So the CM frame wavefunction <script type="math/tex">%<![CDATA[
+\phi_{\mathrm{CM}}
+%]]></script> satisfies</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \phi_{\mathrm{CM}}(\vec x) = (-)^{\vec d\cdot\vec n}\phi_{\mathrm{CM}}(\vec x + \Lambda\vec n L). 
+%]]></script></div><p>Functions obeying this property is called <em>d-periodic</em> function. Our next task is to find solution of the Helmholtz equation</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ (\nabla^2 + p^2)\phi_{\mathrm{CM}} = 0 
+%]]></script></div><p>that satisfies this periodicity rule. This equation can be solved by defining the Green function</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+G^{\vec d}(\vec x, p) = \frac{1}{\gamma L^3} \sum_{\vec n \in \Gamma_{\vec d}} \frac{e^{i\vec k\cdot\vec x}}{\vec k^2 - p^2},
+%]]></script></div><p>where the lattice <script type="math/tex">%<![CDATA[
+\Gamma_{\vec d}
+%]]></script> is</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \Gamma_{\vec d} = \left\{\vec k \in R^3 \middle| \vec k = \frac{2\pi}{L} \Lambda^{-1}(\vec n + \frac12\vec d), \vec n \in Z^3 \right\}. 
+%]]></script></div><p>It's obviously d-periodic, thus a solution of the Helmholtz equation. Generic solutions can be obtained by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+G^{\vec d}_{lm}(\vec x, p) = \mathcal{Y}_{lm}(\vec\nabla) G^{\vec d}(\vec x, p),
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+\mathcal{Y}_{lm}(\vec x) = x^l Y_{lm}(\theta, \varphi)
+%]]></script>. It can be expanded in terms of spherical harmonics as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+G^{\vec d}_{lm}(\vec x, p) = \frac{(-)^l p^{l + 1}}{4\pi}\left[
+    n_l(px) Y_{lm}(\theta, \varphi) + \sum_{l' = 0}^\infty \sum_{m' = -l'}^l M^{\vec d}_{lm, l'm'}(p) j_{l'}(px) Y_{l'm'}(\theta, \varphi)
+\right].
+%]]></script></div><p>Comparing with harmonic expansion</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\phi_{\mathrm{CM}}(\vec x) = \sum_{l = 0}^\infty \sum_{m = -l}^l c_{lm}
+Y_{lm}(\theta, \varphi)\left[a_l(p) j_l(px) + b_l(p) n_l(px)\right],
+%]]></script></div><p>which gives the phase shift</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+e^{2i\delta_l} = \frac{a_l + ib_l}{a_l - ib_l},
+%]]></script></div><p>the phase shift can be solved in terms of <script type="math/tex">%<![CDATA[
+M^{\vec d}_{lm, l'm'}
+%]]></script> as</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \det\left[e^{2i\delta_l}(M - i) - (M + i)\right] = 0. 
+%]]></script></div><p>The term <script type="math/tex">%<![CDATA[
+M^{\vec d}_{lm, l'm'}
+%]]></script> is given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+M^{\vec d}_{lm, l'm'}(p) = \gamma^{-1} \frac{(-)^l}{\pi^{3/2}}
+\sum_{j = |l - l'|}^{l + l'} \sum_{s = -j}^j \frac{i^j}{q^{j + 1}} Z^{\vec d}_{js}(1, \vec q) C_{lm, js, l'm'},
+%]]></script></div><p>where <script type="math/tex">%<![CDATA[
+q = pL / 2\pi
+%]]></script> and</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+C_{lm, js, l'm'} = (-)^{m'}i^{l - j + l'} \sqrt{(2l + 1)(2j + 1)(2l' + 1)}\begin{pmatrix}
+    l & j & l' \\
+    m & s & -m'
+\end{pmatrix} \begin{pmatrix}
+    l & j & l'\\
+    0 & 0 & 0
+\end{pmatrix}.
+%]]></script></div><p>The <script type="math/tex">%<![CDATA[
+Z^{\vec d}_{lm}(s, q)
+%]]></script> is the generalized zeta function, given by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+Z^{\vec d}_{lm}(s, q) = \sum_{\vec n \in \Gamma_{\vec d}} \mathcal{Y}_{lm}(\vec n)(\vec n^2 - q^2)^s.
+%]]></script></div><div class="head2-wrapper" id="symmetries"><h2>Symmetries</h2></div><p>To compute the phase shift we need energy levels of states with given quantum numbers to get the CM frame momenta, and states with different quantum numbers should belong to representations of the lattice group.</p><p>If <script type="math/tex">%<![CDATA[
+\vec d \neq 0
+%]]></script> the lattice <script type="math/tex">%<![CDATA[
+\Gamma_{\vec d}
+%]]></script> no longer has the cubic symmetry <script type="math/tex">%<![CDATA[
+O_4
+%]]></script>, but reduced to some subgroup of it. To compute the engergy levels we need to construct states that belongs to the representations of these groups. </p><p>To construct the states, define Fourier transformations of the field</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+ \tilde\phi(t, \vec p) = \frac{1}{L^3}\sum_{\vec x}\phi(t, \vec x) e^{i\vec p\cdot\vec x}. 
+%]]></script></div><p>For <script type="math/tex">%<![CDATA[
+\vec d = 0
+%]]></script>, the state operators with <script type="math/tex">%<![CDATA[
+l = 0
+%]]></script> can be constructed by</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+O_{0, i}(t) = \frac{1}{N_i} \sum_{\vec n} \delta_{\vec n^2, i - 1} \tilde\phi(t, \vec n)\tilde\phi(t, -\vec n),
+%]]></script></div><p>they belong to the <script type="math/tex">%<![CDATA[
+A_1^+
+%]]></script> representation of the cubic group. States with higher <script type="math/tex">%<![CDATA[
+l
+%]]></script> can be constructed from successive representations:</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    \Gamma^{(1)} & = A_2^- \oplus E^-\\
+    \Gamma^{(2)} & = A_1^+ \oplus B_1^+ \oplus B_2^+ \oplus E^+\\
+    \Gamma^{(3)} & = A_2^- \oplus B_1^- \oplus B_2^- \oplus 2E^-.
+\end{aligned}
+%]]></script></div><p>While in <script type="math/tex">%<![CDATA[
+\vec d = (0, 0, 1)
+%]]></script> sector, the tetragonal group <script type="math/tex">%<![CDATA[
+D_{4h}
+%]]></script> should be considered. For <script type="math/tex">%<![CDATA[
+l = 0
+%]]></script>, the representation is again <script type="math/tex">%<![CDATA[
+A_1^+
+%]]></script>, and the operators</p><div class="mathjax-wrapper"><script type="math/tex; mode=display">%<![CDATA[
+\begin{aligned}
+    O_{\vec d, 1} & = \tilde\phi(\vec d) \tilde\phi(0)\\
+    O_{\vec d, 2} & = \frac14 \sum_{\vec n}\delta_{\vec d, \vec n}\delta_{\vec n^2, 1} \tilde\phi(\vec d + \vec n) \tilde\phi(-\vec n)\\
+    O_{\vec d, 3} & = \tilde\phi(2\vec d) \tilde\phi(-\vec d)\\
+    O_{\vec d, 4} & = \frac14 \sum_{\vec n}\delta_{\vec n, \vec d}\delta_{\vec n^2, 2} \tilde\phi(\vec n + \vec d) \tilde\phi(-\vec n).
+\end{aligned}
+%]]></script></div><p>Next goal is to find the representation of the trigonal group <script type="math/tex">%<![CDATA[
+D_{3d}
+%]]></script>, for the momentum <script type="math/tex">%<![CDATA[
+\vec d = (1, 1, 1)
+%]]></script>.</p></div><footer class="post-footer"><a class="btn-tag" href="/tags/hep-lat/" title="Tag: hep-lat"><i class="fas fa-tag"></i>hep-lat</a></footer></article></div></div><footer class="main-footer"><div class="footer-row-2"><div class="footer-right"><span>Links</span><ul class="link-list"><li><a href="https://zzy.blog.ustc.edu.cn/" target="_blank">zzy(BG6GCZ)</a></li><li><a href="https://wxyhly.github.io/" target="_blank">wxy</a></li><li><a href="https://www.futantan.com/" target="_blank">futantan</a></li></ul></div><div class="divider"></div><div class="footer-left"><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p><p>Powered by <a href="https://github.com/Hadron67/Noteblog" target="_blank">Noteblog</a>, theme written by Hadroncfy.</p><p><i class="fab fa-html5"></i> <a href="http://validator.w3.org/check?uri=https://hadroncfy.com/articles/2019/09/02/hep-lat-scaterring/index.html" target="_blank">Validate HTML5</a></p></div></div></footer><div id="search-panel"><div class="search-inner empty" id="search-inner"><div class="search-input-container"><a id="btn-clear-search"><i class="fas fa-times"></i></a><input id="search-input" type="text" autocomplete="off" placeholder="Search posts..." /></div><div class="search-result-container"><ul id="search-result"></ul><div id="search-loading" class="show"></div><div id="search-no-result-hint"><p class="icon"><i class="fas fa-search"></i></p><p class="text">No result found.</p></div></div></div></div><a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a><script data-index-json="/search/content.json" src="/js/main.js"></script><script src="/js/katex-renderer.js"></script></body></html>
