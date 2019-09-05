@@ -144,7 +144,8 @@ $article-small-inner-padding: 20px;
     }
 
     h2 {
-        font-size: $base-font-size * 1.625;
+        font-size: $base-font-size * 1.8;
+        margin-top: 30px;
         // border-bottom: 4px solid #eee;
         // padding-bottom: 10px;
         // padding-top: 10px;
@@ -153,15 +154,17 @@ $article-small-inner-padding: 20px;
         // }
     }
     h3 {
-        font-size: $base-font-size * 1.375;
+        font-size: $base-font-size * 1.6;
+        margin-top: 30px;
         border-bottom: #eee solid 1px;
         padding-bottom: 2px;
+        font-weight: 500;
         // @media screen and (max-width: $font-media-max-width) {
         //     font-size: $base-font-size * 1.327;
         // }
     }
     h4 {
-        font-size: $base-font-size * 1.25;
+        font-size: $base-font-size * 1.4;
         @media screen and (max-width: $font-media-max-width) {
             font-size: $base-font-size * 1.125;
         }

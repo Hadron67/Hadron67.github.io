@@ -23,7 +23,7 @@ module.exports = (main, mod) => {
             title ? escapeHTML(`${title} | `) : '',
             !fullTitle ? escapeHTML(config.title) : '',
         '</title>',
-        '<link href="/css/main.css" type="text/css" rel="stylesheet">',
+        `<link href="${main.path('/css/main.css')}" type="text/css" rel="stylesheet">`,
         // XXX: Using an empty script tag to fix the Chrome bug that all property transition from 
         // user agent to the supplied value on page load. See https://github.com/LeaVerou/prefixfree/issues/99
         '<script> (function(){})(); </script>',

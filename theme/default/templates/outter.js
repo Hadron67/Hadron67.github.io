@@ -108,9 +108,8 @@ module.exports = (main, mod) => {
                 footer(),
                 searchPanel,
                 '<a id="totop" href="javascript:;" title="Back to top"><i class="fas fa-chevron-up"></i></a>',
-                '<script src="/js/main.js"></script>',
-                libs.katex.prerendering ? '' : '<script src="/js/katex-renderer.js"></script>',
-                // mathjax(),
+                `<script data-index-json="${main.ext.searchIndex}" src="${main.path('/js/main.js')}"></script>`,
+                libs.katex.prerendering ? '' : `<script src="${main.path('/js/katex-renderer.js')}"></script>`,
             '</body>',
         '</html>'
     ];

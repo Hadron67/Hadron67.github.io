@@ -3,6 +3,8 @@ layout: post
 date: 2019-6-12 19:09:23 +0800
 title: 'Notes on String Theory (1)'
 category: Note/String
+tags:
+- hep-th
 ---
 $$ %hidden
 \gdef\dd{\mathrm{d}}

@@ -215,6 +215,8 @@ function doMatch(content, regexp){
     }
 }
 
+var searchJSON = document.currentScript.getAttribute('data-index-json');
+
 function doSearch(str, cb){
     var regexp; 
     try {
@@ -234,7 +236,7 @@ function doSearch(str, cb){
     else {
         search.startLoading();
         $.ajax({
-            url: '/search/content.json',
+            url: searchJSON,
             success: function(data){
                 content = data;
                 search.stopLoading();
